@@ -1,0 +1,10 @@
+/* ==========================================================
+   Preloader
+   ========================================================== */
+/* preloader */
+#pre{position:fixed;inset:0;z-index:999;background:var(--bg);display:grid;place-items:center;transition:opacity .6s,visibility .6s}
+#pre.done{opacity:0;visibility:hidden}
+#pre .box{font-family:var(--mono);font-size:14px;width:min(520px,88%);color:var(--muted)}
+#pre .box div{white-space:pre;overflow:hidden}
+#pre .bar{height:2px;background:var(--line);margin-top:18px;border-radius:2px;overflow:hidden}
+#pre .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));transition:width .25s}

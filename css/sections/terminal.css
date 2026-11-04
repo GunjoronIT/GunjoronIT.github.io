@@ -1,0 +1,16 @@
+/* ==========================================================
+   Interactive terminal
+   ========================================================== */
+/* terminal */
+.term-wrap{max-width:880px}
+.term-wrap .cmds{justify-content:center;margin:0 0 22px}
+.term{border-radius:var(--r);background:#030817;border:1px solid var(--line2);overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.9),0 0 60px -20px rgba(34,229,139,.25)}
+.term .ide-top{background:#061028}
+.term-body{height:380px;overflow-y:auto;padding:18px;font-family:var(--mono);font-size:13.5px;line-height:1.75;cursor:text}
+.term-body .o{color:var(--muted);white-space:pre-wrap}
+.term-body .e{color:var(--red)}
+.term-in{display:flex;gap:8px}
+.term-in input{flex:1;background:none;border:0;outline:0;color:var(--text);font:inherit;caret-color:var(--green)}
+.cmds{display:flex;flex-wrap:wrap;gap:8px}
+.cmds button{font-family:var(--mono);font-size:12.5px;padding:7px 14px;border-radius:9px;border:1px solid var(--line2);color:var(--muted);transition:.2s}
+.cmds button:hover{border-color:var(--green);color:var(--green)}

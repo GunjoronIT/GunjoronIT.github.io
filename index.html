@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gunjoron IT Team | গুঞ্জরণ আইটি টিম</title>
+<meta name="description" content="গুঞ্জরণ আইটি টিম — ওয়েবসাইট, মোবাইল অ্যাপ ও UI/UX ডিজাইন। আমরা আইডিয়াকে কোডে রূপ দিই।">
+<meta name="theme-color" content="#040A18">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gunjoron IT Team | গুঞ্জরণ আইটি টিম">
+<meta property="og:description" content="ওয়েবসাইট, মোবাইল অ্যাপ ও UI/UX ডিজাইন। আমরা আইডিয়াকে কোডে রূপ দিই।">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+<!-- Fonts (self-hosted) -->
+<link rel="preload" href="fonts/noto-serif-bengali-bengali-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/noto-serif-bengali-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/base/variables.css">
+<link rel="stylesheet" href="css/base/reset.css">
+<link rel="stylesheet" href="css/layout/background.css">
+<link rel="stylesheet" href="css/layout/preloader.css">
+<link rel="stylesheet" href="css/layout/cursor.css">
+<link rel="stylesheet" href="css/layout/nav.css">
+<link rel="stylesheet" href="css/sections/hero.css">
+<link rel="stylesheet" href="css/layout/sections.css">
+<link rel="stylesheet" href="css/sections/about.css">
+<link rel="stylesheet" href="css/sections/services.css">
+<link rel="stylesheet" href="css/sections/stack.css">
+<link rel="stylesheet" href="css/sections/projects.css">
+<link rel="stylesheet" href="css/components/modal.css">
+<link rel="stylesheet" href="css/sections/process.css">
+<link rel="stylesheet" href="css/sections/team.css">
+<link rel="stylesheet" href="css/sections/stats.css">
+<link rel="stylesheet" href="css/sections/terminal.css">
+<link rel="stylesheet" href="css/sections/faq.css">
+<link rel="stylesheet" href="css/sections/contact.css">
+<link rel="stylesheet" href="css/layout/footer.css">
+<link rel="stylesheet" href="css/components/palette.css">
+<link rel="stylesheet" href="css/components/mobile-menu.css">
+<link rel="stylesheet" href="css/components/back-to-top.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/effects/animations.css">
+<link rel="stylesheet" href="css/effects/polish.css">
+<link rel="stylesheet" href="css/effects/responsive-fixes.css">
+</head>
+<body class="loading">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <linearGradient id="gj-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0E1F47"/><stop offset="1" stop-color="#040A18"/></linearGradient>
+    <linearGradient id="gj-edge" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3D7BFF" stop-opacity=".55"/><stop offset=".5" stop-color="#3D7BFF" stop-opacity=".08"/><stop offset="1" stop-color="#22E58B" stop-opacity=".45"/></linearGradient>
+    <linearGradient id="gj-g" x1="11" y1="48" x2="42" y2="26" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3D7BFF"/><stop offset="1" stop-color="#22E58B"/></linearGradient>
+    <radialGradient id="gj-glow" cx="44" cy="20" r="30" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#22E58B" stop-opacity=".22"/><stop offset="1" stop-color="#22E58B" stop-opacity="0"/></radialGradient>
+  
+<symbol id="gj-logo" viewBox="0 0 64 64"><rect x="0.5" y="0.5" width="63" height="63" rx="15.5" fill="url(#gj-bg)"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="15.5" fill="url(#gj-glow)"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="15.5" fill="none" stroke="url(#gj-edge)"/>
+  <path d="M35.64 25.01A15 15 0 1 0 41.00 36.50" fill="none" stroke="url(#gj-g)" stroke-width="6.5" stroke-linecap="round"/>
+  <path d="M29.00 36.5H41.00" stroke="#22E58B" stroke-width="6.5" stroke-linecap="round"/>
+  <path d="M35.86 16.28A22.5 22.5 0 0 1 47.83 31.06" fill="none" stroke="#22E58B" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M38.71 10.43A29 29 0 0 1 54.14 29.48" fill="none" stroke="#22E58B" stroke-opacity=".5" stroke-width="3.2" stroke-linecap="round"/></symbol></svg>
+
+<div id="pre"><div class="box"><svg class="pre-mk" viewBox="0 0 64 64" aria-hidden="true"><use href="#gj-logo"/></svg><div id="preBox"></div></div></div>
+<div class="bg-grid"></div>
+<div id="codebg" aria-hidden="true"></div>
+<canvas id="net"></canvas>
+<div id="prog"></div>
+<div class="cur"></div><div class="cur-dot"></div>
+
+<nav id="nav">
+  <a href="#home" class="logo"><svg class="mk" viewBox="0 0 64 64" aria-hidden="true"><use href="#gj-logo"/></svg><span>গুঞ্জরণ<small>IT TEAM</small></span></a>
+  <div class="links">
+    <a href="#about">আমরা</a><a href="#services">সার্ভিস</a><a href="#projects">প্রজেক্ট</a><a href="#team">টিম</a><a href="#terminal">টার্মিনাল</a><a href="#contact">যোগাযোগ</a>
+  </div>
+  <div class="nav-r">
+    <button class="kbd" id="palBtn" aria-label="কমান্ড প্যালেট খুলুন">⌘ K</button>
+    <a href="#contact" class="btn btn-p btn-sm mag">প্রজেক্ট শুরু করুন</a>
+    <button class="burger" id="burger" aria-label="মেনু"><i></i><i></i></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav" aria-hidden="true">
+  <div class="mn-top">~/gunjoron <span class="g">$</span> ls ./pages</div>
+  <a class="ml" href="#about">আমরা<em>about.tsx</em></a>
+  <a class="ml" href="#services">সার্ভিস<em>services.tsx</em></a>
+  <a class="ml" href="#projects">প্রজেক্ট<em>projects.tsx</em></a>
+  <a class="ml" href="#team">টিম<em>team.tsx</em></a>
+  <a class="ml" href="#terminal">টার্মিনাল<em>shell.sh</em></a>
+  <a class="ml" href="#contact">যোগাযোগ<em>contact.tsx</em></a>
+  <div class="mn-foot"><a href="#contact" class="btn btn-p">প্রজেক্ট শুরু করুন →</a><button class="btn btn-o" id="mSearch" style="flex:0 0 auto">⌕ খুঁজুন</button></div>
+  <div class="mn-st"><span><span class="g">●</span> main</span><span>6 files · UTF-8</span></div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <a href="#contact" class="avail rv" aria-label="নতুন প্রজেক্ট নিচ্ছি, যোগাযোগ করুন"><span class="live"></span><span class="tx">নতুন প্রজেক্ট নিচ্ছি</span><span class="yr">২০২৬</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <h1 class="rv d1">আমরা আইডিয়াকে<br><span class="grad">কোডে রূপ দিই।</span></h1>
+      <div class="type rv d2"><span class="p">&gt; </span>বানাই <b id="typed"></b><span class="caret"></span></div>
+      <p class="lead rv d3">গুঞ্জরণ আইটি টিম হলো চারজন প্রোগ্রামার ও ডিজাইনারের একটি দল। আমরা পরিষ্কার কোড আর যত্নের ডিজাইনে দ্রুত, সুন্দর ও কার্যকর ডিজিটাল প্রোডাক্ট বানাই।</p>
+      <div class="cta rv d4">
+        <a href="#projects" class="btn-x go mag">আমাদের কাজ দেখুন<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a href="#terminal" class="btn-x sh2 mag">টার্মিনাল চালান<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 4-5 4M13 17h6"/></svg></span></a>
+      </div>
+      <div class="hero-meta rv d5">
+        <div class="hm"><small>// shipped</small><b data-count="5">0</b><span>প্রজেক্ট</span></div>
+        <div class="hm"><small>// builders</small><b data-count="4">0</b><span>সদস্য</span></div>
+        <div class="hm"><small>// stack</small><b>Web<i>/</i>App</b><span>প্ল্যাটফর্ম</span></div>
+      </div>
+    </div>
+    <div class="hero-vis rv d2">
+      <div class="ide" id="ide">
+        <div class="ide-top"><i></i><i></i><i></i><span class="tab">gunjoron.ts</span></div>
+        <pre id="code"></pre>
+        <div class="ide-foot"><span>TypeScript · UTF-8</span><span class="ok">● build passed</span></div>
+      </div>
+      <div class="float" style="top:-18px;right:-14px"><span class="g">✓</span> deploy সফল</div>
+      <div class="float" style="bottom:40px;left:-30px;animation-delay:-3s"><span class="b">◆</span> Lighthouse <b class="g">100</b></div>
+    </div>
+  </div>
+  <div class="scroll-ind">SCROLL<i></i></div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx">about</div><h2>কোড আমাদের ভাষা,<br><span class="hl">ডিজাইন আমাদের অনুভূতি।</span></h2><p>"গুঞ্জরণ" মানে মৃদু সুরেলা ধ্বনি। আমরা চাই আমাদের প্রতিটি প্রোডাক্ট মানুষের জীবনে তেমনই সহজ আর সুন্দরভাবে মিশে যাক।</p><i class="bar"></i></div>
+    <div class="bento">
+      <div class="card b-a rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div><p class="big-q">আইডিয়া থেকে লঞ্চ পর্যন্ত পুরো যাত্রায় আমরা আপনার পাশে আছি: পরিকল্পনা, ডিজাইন, ডেভেলপমেন্ট, টেস্টিং আর ডিপ্লয়মেন্ট, সব এক টিমে।</p></div>
+      <div class="card b-b rv d1"><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>সময়মতো ডেলিভারি</h3><p>পরিষ্কার মাইলস্টোন আর নিয়মিত আপডেট।</p></div>
+      <div class="card b-c rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>ক্লিন আর্কিটেকচার</h3><p>এমন কোড, যা বড় হলেও সামলানো সহজ।</p></div>
+      <div class="card b-d rv d1"><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><h3>মোবাইল-ফার্স্ট</h3><p>প্রতিটি স্ক্রিনে নিখুঁত অভিজ্ঞতা।</p></div>
+      <div class="card b-e rv d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h3>বাংলায় যত্ন</h3><p>বাংলা ভাষা ও স্থানীয় ব্যবহারকারীর কথা মাথায় রেখে।</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx">services</div><h2>আমরা যা <span class="hl">করি</span></h2><p>একটি ছোট টিম, কিন্তু পুরো প্রোডাক্ট বানানোর সব দক্ষতা এক জায়গায়।</p><i class="bar"></i></div>
+    <div class="svc">
+      <div class="card rv"><span class="num">/01</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>ওয়েব ডেভেলপমেন্ট</h3><p>দ্রুত, SEO-বান্ধব ও রেসপন্সিভ ওয়েবসাইট এবং ওয়েব অ্যাপ।</p><div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Laravel</span></div></div>
+      <div class="card rv d1"><span class="num">/02</span><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><h3>মোবাইল অ্যাপ</h3><p>Android ও iOS-এর জন্য এক কোডবেসে স্মুথ নেটিভ-অনুভূতির অ্যাপ।</p><div class="chips"><span class="chip">Flutter</span><span class="chip">React Native</span></div></div>
+      <div class="card rv d2"><span class="num">/03</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></div><h3>UI/UX ডিজাইন</h3><p>রিসার্চভিত্তিক, ব্যবহারে সহজ এবং দেখতে প্রিমিয়াম ইন্টারফেস।</p><div class="chips"><span class="chip">Figma</span><span class="chip">Prototype</span></div></div>
+      <div class="card rv"><span class="num">/04</span><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.7-4 3-9 3s-9-1.3-9-3M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/></svg></div><h3>ব্যাকএন্ড ও API</h3><p>নিরাপদ, স্কেলযোগ্য সার্ভার, ডাটাবেস ও REST/GraphQL API।</p><div class="chips"><span class="chip">Node.js</span><span class="chip">Firebase</span><span class="chip">MySQL</span></div></div>
+      <div class="card rv d1"><span class="num">/05</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div><h3>ডিপ্লয় ও মেইনটেন্যান্স</h3><p>হোস্টিং, ডোমেইন, CI/CD এবং লঞ্চের পর নিয়মিত সাপোর্ট।</p><div class="chips"><span class="chip">Vercel</span><span class="chip">GitHub Actions</span></div></div>
+      <div class="card rv d2"><span class="num">/06</span><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4zM4 22a8 8 0 0 1 16 0"/></svg></div><h3>ব্র্যান্ডিং ও পরামর্শ</h3><p>লোগো, ব্র্যান্ড আইডেন্টিটি এবং আপনার আইডিয়ার জন্য সঠিক টেক প্ল্যান।</p><div class="chips"><span class="chip">Strategy</span><span class="chip">Identity</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<div class="marq"><div class="tr" id="m1"></div></div>
+<div class="marq rev" style="border-top:0"><div class="tr" id="m2"></div></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx">projects</div><h2>নির্বাচিত <span class="hl">কাজ</span></h2><p>যে প্রজেক্টগুলো আমরা যত্ন নিয়ে বানিয়েছি। বিস্তারিত দেখতে যেকোনো কার্ডে ক্লিক করুন।</p><i class="bar"></i></div>
+    <div class="filters rv">
+      <button class="flt on" data-f="all">সব (5)</button>
+      <button class="flt" data-f="web">ওয়েবসাইট (3)</button>
+      <button class="flt" data-f="app">মোবাইল অ্যাপ (2)</button>
+    </div>
+    <div class="proj" id="proj"></div>
+  </div>
+</section>
+
+<div class="modal" id="modal"><div class="mb" id="mbox"></div></div>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx">process</div><h2>আমাদের কাজের <span class="hl">ধাপ</span></h2><p>স্বচ্ছ প্রক্রিয়া, যাতে প্রতিটি ধাপে আপনি জানেন কী হচ্ছে।</p><i class="bar"></i></div>
+    <div class="proc" id="procEl">
+      <div class="proc-line"><i id="procLine"></i></div>
+      <div class="step rv"><div class="o">01</div><h4>আলোচনা</h4><p>আপনার লক্ষ্য, ব্যবহারকারী ও প্রয়োজন বোঝা</p></div>
+      <div class="step rv d1"><div class="o">02</div><h4>ডিজাইন</h4><p>ওয়্যারফ্রেম, UI ডিজাইন ও প্রোটোটাইপ</p></div>
+      <div class="step rv d2"><div class="o">03</div><h4>ডেভেলপ</h4><p>ক্লিন কোডে ফ্রন্টএন্ড ও ব্যাকএন্ড তৈরি</p></div>
+      <div class="step rv d3"><div class="o">04</div><h4>টেস্ট</h4><p>সব ডিভাইসে পারফরম্যান্স ও বাগ যাচাই</p></div>
+      <div class="step rv d4"><div class="o">05</div><h4>লঞ্চ</h4><p>ডিপ্লয়মেন্ট এবং লঞ্চের পর সাপোর্ট</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx">team</div><h2>যাদের হাতে কোড <span class="hl">জাদু</span> হয়</h2><p>চারজন মানুষ, একটি লক্ষ্য: অসাধারণ ডিজিটাল অভিজ্ঞতা তৈরি করা।</p><i class="bar"></i></div>
+    <div class="team" id="teamEl"></div>
+  </div>
+</section>
+
+<!-- TERMINAL -->
+<section id="terminal">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx">terminal</div><h2>নিজেই <span class="hl">কমান্ড</span> চালিয়ে দেখুন</h2><p>প্রোগ্রামারদের মতো করে আমাদের চিনুন। নিচে কমান্ড লিখুন অথবা বাটনে ক্লিক করুন।</p><i class="bar"></i></div>
+    <div class="term-wrap" style="margin-inline:auto">
+      <div class="rv"><div class="cmds" id="cmds"><button>help</button><button>whoami</button><button>team</button><button>projects</button><button>services</button><button>contact</button><button>sudo hire-us</button><button>clear</button></div></div>
+      <div class="term rv d1">
+      <div class="ide-top"><i></i><i></i><i></i><span class="tab">guest@gunjoron: ~</span></div>
+      <div class="term-body" id="tb">
+        <div id="tout"></div>
+        <div class="term-in"><span class="g">guest@gunjoron</span><span class="b">:~$</span><input id="tin" autocomplete="off" spellcheck="false" aria-label="টার্মিনাল ইনপুট"></div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx">faq</div><h2>সাধারণ <span class="hl">জিজ্ঞাসা</span></h2><i class="bar"></i></div>
+    <div class="faq" id="faqEl"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sh rv"><div class="idx">contact</div><h2>চলুন একসাথে কিছু <span class="hl">বানাই</span></h2><p>আপনার আইডিয়া সম্পর্কে একটু জানান, আমরা দ্রুত যোগাযোগ করব।</p><i class="bar"></i></div>
+    <div class="ct">
+      <div class="card ct-l rv">
+        <div><h3>আপনার পরের বড় আইডিয়া<br><span class="g">এখান থেকেই শুরু।</span></h3>
+        <ul><li><span>01</span>ফ্রি প্রাথমিক পরামর্শ</li><li><span>02</span>পরিষ্কার খরচ ও সময়সূচি</li><li><span>03</span>লঞ্চের পরও সাপোর্ট</li></ul></div>
+        <p class="mono m" style="font-size:13px;margin-top:30px">// response_time: &lt; 24h</p>
+      </div>
+      <form class="card rv d1" id="form" novalidate>
+        <div id="fwrap" style="display:grid;gap:18px">
+          <div class="fr"><div><label for="fn">নাম *</label><input id="fn" placeholder="আপনার নাম"></div><div><label for="fe">ইমেইল / ফোন *</label><input id="fe" placeholder="যোগাযোগের মাধ্যম"></div></div>
+          <div><label>কী ধরনের কাজ?</label><div class="opts">
+            <input type="checkbox" id="o1" checked><label for="o1">ওয়েবসাইট</label>
+            <input type="checkbox" id="o2"><label for="o2">মোবাইল অ্যাপ</label>
+            <input type="checkbox" id="o3"><label for="o3">UI/UX</label>
+            <input type="checkbox" id="o4"><label for="o4">অন্যান্য</label></div></div>
+          <div><label for="bud">আনুমানিক বাজেট: <span class="g" id="budv">৳ ৫০,০০০</span></label><input type="range" id="bud" min="10000" max="500000" step="10000" value="50000"></div>
+          <div><label for="fm">প্রজেক্ট সম্পর্কে *</label><textarea id="fm" placeholder="আপনার আইডিয়া সংক্ষেপে লিখুন..."></textarea></div>
+          <div class="err" id="ferr"></div>
+          <button class="btn btn-p mag" type="submit" style="justify-content:center">বার্তা পাঠান <span>→</span></button>
+        </div>
+        <div class="sent" id="sent"><div class="ok">✓</div><h3 style="font-size:24px">ধন্যবাদ, <span id="sname"></span>!</h3><p class="m" style="margin-top:8px">আপনার বার্তা প্রস্তুত। (ডেমো: আসল সাইটে এটি আপনার ইমেইল বা ব্যাকএন্ডে যাবে।)</p><button type="button" class="btn btn-o btn-sm" style="margin-top:20px" id="again">আরেকটি পাঠান</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <a href="#home" class="logo"><svg class="mk" viewBox="0 0 64 64" aria-hidden="true"><use href="#gj-logo"/></svg><span>গুঞ্জরণ আইটি টিম<small>GUNJORON IT TEAM</small></span></a>
+        <p class="ft-tag">আইডিয়াকে কোডে, কোডকে অভিজ্ঞতায় রূপ দিই।</p>
+        <div class="gl">
+          <div class="contrib" id="contrib" role="img" aria-label="কাজের অ্যাক্টিভিটি"></div>
+          <div class="gl-f"><span><em>$</em> git log --since="26w"</span><span class="gl-l" aria-hidden="true"><span>কম</span><i></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i><span>বেশি</span></span></div>
+        </div>
+      </div>
+      <div><h5><b>//</b> navigate</h5><ul><li><a href="#about">আমরা</a></li><li><a href="#services">সার্ভিস</a></li><li><a href="#projects">প্রজেক্ট</a></li><li><a href="#team">টিম</a></li></ul></div>
+      <div><h5><b>//</b> projects</h5><ul><li><a href="#projects">পত্রদ্বীপ</a></li><li><a href="#projects">পাথেয় বাই গুঞ্জরণ</a></li><li><a href="#projects">কেয়ারি</a></li></ul></div>
+      <div><h5><b>//</b> newsletter</h5><p class="ft-nlp">নতুন কাজের খবর পেতে যুক্ত থাকুন।</p>
+        <form class="nl" id="nl" novalidate><label class="nl-f"><span class="pr" aria-hidden="true">&gt;</span><input type="email" name="email" placeholder="আপনার ইমেইল" aria-label="ইমেইল" autocomplete="email" inputmode="email"><button class="btn btn-p btn-sm nl-b" type="submit">যুক্ত হন <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></label></form></div>
+    </div>
+    <div class="giant">GUNJORON</div>
+    <div class="fb"><span>© 2026 Gunjoron IT Team. সর্বস্বত্ব সংরক্ষিত।</span><span class="live"><i></i>Built with <span class="r">♥</span> &amp; clean code · <span class="g">v1.1.0</span></span></div>
+  </div>
+</footer>
+
+<div class="pal" id="pal"><div class="pb"><input id="palIn" placeholder="কোথায় যেতে চান? লিখুন..." aria-label="খুঁজুন"><ul id="palList"></ul></div></div>
+<div class="toast" id="toast"></div>
+<button class="totop" id="totop" aria-label="উপরে যান">
+  <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3D7BFF"/><stop offset="1" stop-color="#22E58B"/></linearGradient></defs>
+    <circle class="tk" cx="32" cy="32" r="31"/><circle class="trk" cx="32" cy="32" r="25"/><circle class="pg" id="ttPg" cx="32" cy="32" r="25"/>
+    <g class="hd" id="ttHd"><circle cx="57" cy="32" r="2.4"/></g></svg>
+  <span class="tt-in" id="ttPct">0<i>%</i></span>
+  <span class="tt-ar">{<b>↑</b>}</span>
+  <span class="tt-tip"><span class="k">window</span>.scrollTo(<span class="n">0</span>)</span>
+</button>
+
+<!-- Scripts (order matters: they share one global scope) -->
+<script src="js/core/utils.js" defer></script>
+<script src="js/core/data.js" defer></script>
+<script src="js/modules/preloader.js" defer></script>
+<script src="js/modules/typewriter.js" defer></script>
+<script src="js/modules/hero-code.js" defer></script>
+<script src="js/modules/particles.js" defer></script>
+<script src="js/modules/cursor.js" defer></script>
+<script src="js/modules/nav.js" defer></script>
+<script src="js/modules/render.js" defer></script>
+<script src="js/modules/projects.js" defer></script>
+<script src="js/modules/effects.js" defer></script>
+<script src="js/modules/terminal.js" defer></script>
+<script src="js/modules/form.js" defer></script>
+<script src="js/modules/palette.js" defer></script>
+<script src="js/modules/code-background.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/modules/enhancements.js" defer></script>
+</body>
+</html>

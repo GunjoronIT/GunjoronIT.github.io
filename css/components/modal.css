@@ -1,0 +1,16 @@
+/* ==========================================================
+   Project modal
+   ========================================================== */
+/* modal */
+.modal{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:rgba(2,6,16,.75);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:.35s;padding:20px}
+.modal.open{opacity:1;visibility:visible}
+.modal .mb{width:min(760px,100%);max-height:88vh;overflow:auto;border-radius:22px;background:var(--bg2);border:1px solid var(--line2);transform:translateY(30px) scale(.97);transition:.4s cubic-bezier(.2,.7,.2,1)}
+.modal.open .mb{transform:none}
+.mb .mh{height:240px;display:grid;place-items:center;border-bottom:1px solid var(--line);position:relative}
+.mb .mc{padding:32px}
+.mb h3{font-size:30px}
+.mb .x{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(4,10,24,.7);border:1px solid var(--line2);font-size:18px}
+.mb .x:hover{border-color:var(--red);color:var(--red)}
+.cs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}
+.cs div{padding:14px;border-radius:12px;border:1px solid var(--line);background:rgba(10,24,56,.6)}
+.cs small{display:block;font-family:var(--mono);font-size:11px;color:var(--dim)}

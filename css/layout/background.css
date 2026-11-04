@@ -1,0 +1,21 @@
+/* ==========================================================
+   Background grid, network canvas, code fragments
+   ========================================================== */
+/* background */
+.bg-grid{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(1200px 600px at 80% -10%,rgba(61,123,255,.18),transparent 60%),
+  radial-gradient(900px 500px at -10% 30%,rgba(34,229,139,.08),transparent 60%),
+  linear-gradient(var(--bg),var(--bg))}
+.bg-grid::after{content:"";position:absolute;inset:0;background-image:
+  linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 75%);opacity:.5}
+#net{position:fixed;inset:0;z-index:-1;pointer-events:none}
+#codebg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.cf{position:absolute;will-change:transform;font-family:var(--mono);font-size:12px;line-height:20px;white-space:pre;color:var(--muted);opacity:0;transition:opacity 1.6s ease;
+  -webkit-mask-image:radial-gradient(ellipse 75% 85% at 40% 50%,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 75% 85% at 40% 50%,#000 40%,transparent 100%)}
+.cf.on{opacity:var(--o,.15)}
+.cf .cl{display:block;height:20px}
+.cf .cl i{font-style:normal;color:#3A4C80;margin-right:14px}
+.cf .cl b{font-weight:400}
+.cf u{display:inline-block;width:7px;height:13px;margin-left:1px;vertical-align:-2px;background:var(--green);text-decoration:none;animation:blink 1s steps(1) infinite}
+@media (max-width:600px){.cf{font-size:10px;line-height:16px}.cf .cl{height:16px}.cf.on{opacity:calc(var(--o,.12)*.6)}.cf .cl i{margin-right:8px}}

@@ -1,0 +1,16 @@
+/* ==========================================================
+   Mobile menu
+   ========================================================== */
+/* mobile */
+.mnav{position:fixed;inset:0;z-index:90;background:radial-gradient(600px 400px at 100% 0%,rgba(61,123,255,.18),transparent 60%),radial-gradient(500px 400px at 0% 100%,rgba(34,229,139,.12),transparent 60%),rgba(4,10,24,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;flex-direction:column;justify-content:flex-start;padding:104px 7% 30px;overflow-y:auto;opacity:0;visibility:hidden;transition:.35s}
+.mnav.open{opacity:1;visibility:visible}
+.mn-top{font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:14px}
+.mnav a.ml{display:flex;align-items:baseline;gap:14px;font-size:clamp(24px,7.5vw,32px);font-weight:700;padding:10px 0;border-bottom:1px solid var(--line);opacity:0;transform:translateX(-24px);transition:opacity .45s,transform .45s cubic-bezier(.2,.7,.2,1),color .2s}
+.mnav.open a.ml{opacity:1;transform:none}
+.mnav a.ml span{font-family:var(--mono);font-size:12px;color:var(--green)}
+.mnav a.ml em{margin-left:auto;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--dim)}
+.mnav a.ml:active{color:var(--green)}
+.mn-foot{display:flex;gap:10px;margin-top:28px;opacity:0;transform:translateY(16px);transition:.45s .35s}
+.mnav.open .mn-foot{opacity:1;transform:none}
+.mn-foot .btn{flex:1;justify-content:center}
+.mn-st{margin-top:22px;font-family:var(--mono);font-size:11px;color:var(--dim);display:flex;justify-content:space-between}

@@ -1,0 +1,14 @@
+/* ==========================================================
+   FAQ accordion
+   ========================================================== */
+/* faq */
+.faq{display:grid;gap:12px;max-width:860px;margin-inline:auto}
+.fq{border:1px solid var(--line);border-radius:14px;background:rgba(7,18,48,.5);transition:border-color .3s}
+.fq.open{border-color:rgba(34,229,139,.35)}
+.fq button{width:100%;text-align:left;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:17.5px;font-weight:600}
+.fq button i{font-family:var(--mono);font-style:normal;color:var(--green);transition:transform .3s;font-size:20px}
+.fq.open button i{transform:rotate(45deg)}
+.fq .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}
+.fq.open .a{grid-template-rows:1fr}
+.fq .a>div{overflow:hidden}
+.fq .a p{padding:0 24px 22px;color:var(--muted)}

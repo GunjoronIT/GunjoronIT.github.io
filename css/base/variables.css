@@ -1,0 +1,14 @@
+/* ==========================================================
+   Design tokens
+   ========================================================== */
+:root{
+  --bg:#040A18; --bg2:#071230; --panel:#0A1838; --panel2:#0E1F47;
+  --line:rgba(120,160,255,.12); --line2:rgba(120,160,255,.22);
+  --text:#E6EDFF; --muted:#8C9BC2; --dim:#5B6A92;
+  --green:#22E58B; --green2:#13B86C; --blue:#3D7BFF; --red:#FF3B5C;
+  --glow:0 0 40px rgba(34,229,139,.25);
+  --r:18px;
+  --bn:'Noto Serif Bengali',serif;
+  --en:'Space Grotesk','Noto Serif Bengali',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}

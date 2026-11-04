@@ -1,0 +1,13 @@
+/* ==========================================================
+   Process steps
+   ========================================================== */
+/* process */
+.proc{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.proc-line{position:absolute;top:31px;left:5%;right:5%;height:2px;background:var(--line)}
+.proc-line i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));box-shadow:0 0 10px var(--green);transition:width 1.8s cubic-bezier(.2,.7,.2,1)}
+.proc.go .proc-line i{width:100%}
+.step{text-align:center;padding:0 6px}
+.step .o{width:64px;height:64px;border-radius:50%;margin:0 auto 20px;display:grid;place-items:center;background:var(--bg2);border:1px solid var(--line2);font-family:var(--mono);color:var(--green);position:relative;z-index:1;transition:.4s}
+.step:hover .o{background:var(--green);color:var(--bg);box-shadow:var(--glow)}
+.step h4{font-size:19px;margin-bottom:6px}
+.step p{font-size:14.5px;color:var(--muted)}
