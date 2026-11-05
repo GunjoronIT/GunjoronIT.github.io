@@ -189,7 +189,7 @@
 <!-- TEAM -->
 <section id="team">
   <div class="wrap">
-    <div class="sh rv"><div class="idx">team</div><h2>যাদের হাতে কোড <span class="hl">জাদু</span> হয়</h2><p>চারজন মানুষ, একটি লক্ষ্য: অসাধারণ ডিজিটাল অভিজ্ঞতা তৈরি করা।</p><i class="bar"></i></div>
+    <div class="sh rv"><div class="idx">team</div><h2>যাদের হাতে কোড <span class="hl">জাদু</span> হয়</h2><p>একটি টিম, একটি লক্ষ্য: অসাধারণ ডিজিটাল অভিজ্ঞতা তৈরি করা।</p><i class="bar"></i></div>
     <div class="team" id="teamEl"></div>
   </div>
 </section>
@@ -243,7 +243,7 @@
           <div class="err" id="ferr"></div>
           <button class="btn btn-p mag" type="submit" style="justify-content:center">বার্তা পাঠান <span>→</span></button>
         </div>
-        <div class="sent" id="sent"><div class="ok">✓</div><h3 style="font-size:24px">ধন্যবাদ, <span id="sname"></span>!</h3><p class="m" style="margin-top:8px">আপনার বার্তা প্রস্তুত। (ডেমো: আসল সাইটে এটি আপনার ইমেইল বা ব্যাকএন্ডে যাবে।)</p><button type="button" class="btn btn-o btn-sm" style="margin-top:20px" id="again">আরেকটি পাঠান</button></div>
+        <div class="sent" id="sent"><div class="ok">✓</div><h3 style="font-size:24px">ধন্যবাদ, <span id="sname"></span>!</h3><p class="m" style="margin-top:8px">আপনার বার্তা পৌঁছে গেছে। আমরা ২৪ ঘণ্টার মধ্যে যোগাযোগ করব।</p><button type="button" class="btn btn-o btn-sm" style="margin-top:20px" id="again">আরেকটি পাঠান</button></div>
       </form>
     </div>
   </div>
@@ -283,6 +283,7 @@
 
 <!-- Scripts (order matters: they share one global scope) -->
 <script src="js/core/utils.js" defer></script>
+<script src="js/core/supabase.js" defer></script>
 <script src="js/core/data.js" defer></script>
 <script src="js/modules/preloader.js" defer></script>
 <script src="js/modules/typewriter.js" defer></script>
@@ -299,5 +300,6 @@
 <script src="js/modules/code-background.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/modules/enhancements.js" defer></script>
+<script src="js/modules/cms.js" defer></script>
 </body>
 </html>

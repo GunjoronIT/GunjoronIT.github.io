@@ -3,7 +3,8 @@
    ========================================================== */
 /* spotlight + tilt */
 document.addEventListener('mousemove',e=>{const c=e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}});
-$$('.tm').forEach(t=>{t.onmousemove=e=>{const r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform=`perspective(800px) rotateY(${x*10}deg) rotateX(${-y*10}deg)`};t.onmouseleave=()=>t.style.transform=''});
+function bindTilt(){$$('.tm').forEach(t=>{t.onmousemove=e=>{const r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform=`perspective(800px) rotateY(${x*10}deg) rotateX(${-y*10}deg)`};t.onmouseleave=()=>t.style.transform=''});}
+bindTilt();
 const ide=$('#ide');$('.hero').addEventListener('mousemove',e=>{if(innerWidth<1024)return;const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;ide.style.transform=`perspective(1200px) rotateY(${x*-8}deg) rotateX(${y*6}deg)`});
 
 /* reveal */
