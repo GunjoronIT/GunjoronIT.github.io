@@ -121,11 +121,11 @@ function projectForm(row,done){
       const v=id=>$('#'+id,f).value.trim();
       if(!v('p_bn'))throw new Error('বাংলা নাম অবশ্যই দিতে হবে');
       if(!v('p_en'))throw new Error('ইংরেজি নাম অবশ্যই দিতে হবে');
-      const ld=ui.loading('সেভ হচ্ছে...','');
+      const ld=ui.loading('সেভ হচ্ছে...','');const uploaded=[];
       try{
         /* নতুন ছবি আপলোড */
         const news=gal.filter(g=>g.res);let k=0;
-        for(const g of news){k++;ld.set(`ছবি আপলোড হচ্ছে (${bnum(k)}/${bnum(news.length)})`,fmtBytes(g.res.blob.size),(k-1)/news.length*100);g.url=await uploadBlob('project-images','projects',g.res)}
+        for(const g of news){k++;ld.set(`ছবি আপলোড হচ্ছে (${bnum(k)}/${bnum(news.length)})`,fmtBytes(g.res.blob.size),(k-1)/news.length*100);g.url=await uploadBlob('project-images','projects',g.res);uploaded.push(g.url)}
         ld.set('তথ্য সেভ হচ্ছে...','',100);
         const images=gal.map(g=>g.url);
         const out={name_bn:v('p_bn'),name_en:v('p_en'),category:$('#p_cat',f).value,description:v('p_desc'),url:v('p_url')||null,tech:f._tags.get(),
@@ -139,7 +139,7 @@ function projectForm(row,done){
         ld.close();
         ui.success(isNew?'প্রজেক্ট যোগ হয়েছে':'প্রজেক্ট সেভ হয়েছে',`"${esc(out.name_bn)}" ওয়েবসাইটে ${out.is_published?'দেখানো হচ্ছে':'লুকানো আছে'}।`,{auto:2000});
         done();
-      }catch(ex){ld.close();if(ex.code==='23505')throw new Error('এই নাম/Slug আগেই আছে — অন্য একটি দিন।');throw new Error(errMsg(ex))}
+      }catch(ex){ld.close();for(const u of uploaded)await sb.removeFile(u).catch(()=>{});if(ex.code==='23505')throw new Error('এই নাম/Slug আগেই আছে — অন্য একটি দিন।');throw new Error(errMsg(ex))}
     }});
 }
 
@@ -178,17 +178,17 @@ function teamForm(row,done){
     },
     onSubmit:async(f)=>{
       const name=$('#t_name',f).value.trim();if(!name)throw new Error('নাম অবশ্যই দিতে হবে');
-      const ld=ui.loading('সেভ হচ্ছে...','');
+      const ld=ui.loading('সেভ হচ্ছে...','');let newUrl=null;
       try{
         let photo_url=photo.removed?null:photo.url,oldToDelete=null;
-        if(photo.res){ld.set('ছবি আপলোড হচ্ছে...',fmtBytes(photo.res.blob.size));photo_url=await uploadBlob('team-images','team',photo.res);if(photo.url)oldToDelete=photo.url}
+        if(photo.res){ld.set('ছবি আপলোড হচ্ছে...',fmtBytes(photo.res.blob.size));photo_url=newUrl=await uploadBlob('team-images','team',photo.res);if(photo.url)oldToDelete=photo.url}
         else if(photo.removed&&photo.url)oldToDelete=photo.url;
         ld.set('তথ্য সেভ হচ্ছে...','');
         const out={name,role:$('#t_role',f).value.trim(),initial:$('#t_init',f).value.trim()||[...name][0]||'',skills:f._sk(),sort_order:parseInt($('#t_ord',f).value,10)||0,is_published:$('#t_pub',f).checked,photo_url};
         if(isNew)await sb.insert('team_members',out);else await sb.update('team_members','id=eq.'+row.id,out);
         if(oldToDelete)await sb.removeFile(oldToDelete).catch(()=>{});
         ld.close();ui.success(isNew?'সদস্য যোগ হয়েছে':'সদস্য সেভ হয়েছে',`"${esc(name)}" টিমে ${out.is_published?'দেখানো হচ্ছে':'লুকানো আছে'}।`,{auto:2000});done();
-      }catch(ex){ld.close();throw new Error(errMsg(ex))}
+      }catch(ex){ld.close();if(newUrl)await sb.removeFile(newUrl).catch(()=>{});throw new Error(errMsg(ex))}
     }});
 }
 

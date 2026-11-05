@@ -17,11 +17,11 @@ const C={
  team:()=>team.map((m,i)=>`<span class="b">[0${i+1}]</span> ${m.n}  <span class="m">— ${m.role}</span>`).join('\n'),
  projects:()=>projects.map(p=>`<span class="g">▸</span> ${p.name} <span class="m">(${p.type})</span>`).join('\n'),
  services:()=>'web-development  mobile-apps  ui-ux-design\nbackend-api  deploy-maintenance  branding',
- contact:()=>{setTimeout(()=>location.hash='#contact',600);return 'যোগাযোগ সেকশনে নিয়ে যাচ্ছি... <span class="g">✓</span>'},
+ contact:()=>{setTimeout(()=>goTo('#contact'),600);return 'যোগাযোগ সেকশনে নিয়ে যাচ্ছি... <span class="g">✓</span>'},
  date:()=>new Date().toLocaleDateString('bn-BD',{weekday:'long',year:'numeric',month:'long',day:'numeric'}),
  ls:()=>'<span class="b">projects/</span>  <span class="b">team/</span>  README.md  hire-us.sh',
  'cat readme.md':()=>'# Gunjoron IT Team\nআমরা আইডিয়াকে কোডে রূপ দিই।',
- 'sudo hire-us':()=>{setTimeout(()=>location.hash='#contact',1400);return `<span class="g">[sudo]</span> অনুমতি মঞ্জুর ✓
+ 'sudo hire-us':()=>{setTimeout(()=>goTo('#contact'),1400);return `<span class="g">[sudo]</span> অনুমতি মঞ্জুর ✓
 হায়ারিং প্রোটোকল চালু হচ্ছে... <span class="g">██████████ 100%</span>
 চলুন একসাথে কিছু অসাধারণ বানাই! 🚀`},
  './hire-us.sh':()=>C['sudo hire-us']()
