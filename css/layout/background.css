@@ -3,8 +3,8 @@
    ========================================================== */
 /* background */
 .bg-grid{position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(1200px 600px at 80% -10%,rgba(61,123,255,.18),transparent 60%),
-  radial-gradient(900px 500px at -10% 30%,rgba(34,229,139,.08),transparent 60%),
+  radial-gradient(1200px 600px at 80% -10%,rgba(var(--blue-rgb),.18),transparent 60%),
+  radial-gradient(900px 500px at -10% 30%,rgba(var(--green-rgb),.08),transparent 60%),
   linear-gradient(var(--bg),var(--bg))}
 .bg-grid::after{content:"";position:absolute;inset:0;background-image:
   linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);

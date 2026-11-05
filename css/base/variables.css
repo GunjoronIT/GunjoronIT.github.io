@@ -8,6 +8,9 @@
   --green:#22E58B; --green2:#13B86C; --blue:#3D7BFF; --red:#FF3B5C;
   --glow:0 0 40px rgba(34,229,139,.25);
   --r:18px;
+  --green-rgb:34,229,139; --blue-rgb:61,123,255; --bg-rgb:4,10,24; --bg2-rgb:7,18,48;
+  --wrap:1200px; --sec-pad:120px;
+  --rv-x:0px; --rv-y:40px; --rv-s:1; --rv-dur:.9s; --mq-dur:40s; --mq-dur2:46s;
   --bn:'Noto Serif Bengali',serif;
   --en:'Space Grotesk','Noto Serif Bengali',system-ui,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,monospace;

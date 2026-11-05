@@ -3,11 +3,11 @@
    ========================================================== */
 /* ---------- TYPEWRITER ---------- */
 function typeLoop(){
-  const words=['প্রিমিয়াম ওয়েবসাইট','মোবাইল অ্যাপ','সুন্দর UI/UX','স্কেলযোগ্য API'];
+  const W=()=>GJ.list('list.typewriter'),sp=()=>+GJ.A('typeSpeed')||80;
   let w=0,c=0,del=false;const el=$('#typed');
-  (function t(){const s=words[w];el.textContent=s.slice(0,c);
-    if(!del&&c<s.length){c++;setTimeout(t,80)}
+  (function t(){const ws=W(),s=ws[w%ws.length];el.textContent=s.slice(0,c);
+    if(!del&&c<s.length){c++;setTimeout(t,sp())}
     else if(!del){del=true;setTimeout(t,1600)}
-    else if(c>0){c--;setTimeout(t,35)}
-    else{del=false;w=(w+1)%words.length;setTimeout(t,300)}})();
+    else if(c>0){c--;setTimeout(t,Math.max(15,sp()*.45))}
+    else{del=false;w=(w+1)%ws.length;setTimeout(t,300)}})();
 }

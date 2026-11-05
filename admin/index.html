@@ -4,290 +4,56 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#050B1A">
 <title>অ্যাডমিন · গুঞ্জরণ আইটি টিম</title>
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="stylesheet" href="../css/fonts.css">
-<style>
-:root{--bg:#040A18;--bg2:#071230;--panel:#0A1838;--line:rgba(120,160,255,.14);--line2:rgba(120,160,255,.26);--text:#E6EDFF;--muted:#8C9BC2;--dim:#5B6A92;--green:#22E58B;--blue:#3D7BFF;--red:#FF3B5C;
---bn:'Noto Serif Bengali',serif;--en:'Space Grotesk','Noto Serif Bengali',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
-*{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--text);font-family:var(--en);min-height:100vh;line-height:1.55}
-button,input,select,textarea{font:inherit;color:inherit}
-button{cursor:pointer;background:none;border:0}
-.hidden{display:none!important}
-.mono{font-family:var(--mono)}.g{color:var(--green)}.m{color:var(--muted)}
-/* login */
-.login{min-height:100vh;display:grid;place-items:center;padding:20px}
-.box{width:min(420px,100%);background:var(--panel);border:1px solid var(--line2);border-radius:20px;padding:32px}
-.box h1{font-size:24px;margin:6px 0 4px}
-/* controls */
-label{display:block;font-size:13px;color:var(--muted);margin:14px 0 6px}
-input[type=text],input[type=email],input[type=password],input[type=number],select,textarea{width:100%;padding:11px 13px;border-radius:10px;background:#061128;border:1px solid var(--line2);outline:0}
-input:focus,select:focus,textarea:focus{border-color:var(--green)}
-textarea{min-height:100px;resize:vertical}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:99px;border:1px solid var(--line2);font-size:14px;transition:.2s}
-.btn:hover{border-color:var(--green)}
-.btn-p{background:var(--green);color:#03140B;border-color:var(--green);font-weight:600}
-.btn-d{color:var(--red);border-color:rgba(255,59,92,.4)}.btn-d:hover{border-color:var(--red)}
-.btn[disabled]{opacity:.5;pointer-events:none}
-.err{color:var(--red);font-size:13px;min-height:18px;margin-top:10px}
-/* layout */
-header{position:sticky;top:0;z-index:20;background:rgba(4,10,24,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-header b{font-size:16px}header .sp{flex:1}
-nav{display:flex;gap:6px;flex-wrap:wrap;padding:14px 20px 0}
-nav button{padding:8px 16px;border-radius:99px;border:1px solid var(--line2);color:var(--muted);font-size:14px}
-nav button.on{background:var(--green);color:#03140B;border-color:var(--green)}
-nav .cnt{background:var(--red);color:#fff;border-radius:99px;font-size:11px;padding:1px 7px;margin-left:6px}
-main{padding:20px;max-width:1000px;margin:0 auto}
-.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-.bar h2{font-size:20px}
-.row{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:10px}
-.row .t{flex:1;min-width:0}.row .t b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.row .t small{color:var(--muted);font-size:12px}
-.thumb{width:54px;height:40px;border-radius:8px;object-fit:cover;background:#061128;border:1px solid var(--line)}
-.tag{font-family:var(--mono);font-size:11px;padding:2px 8px;border-radius:99px;border:1px solid var(--line2);color:var(--muted)}
-.tag.on{color:var(--green);border-color:rgba(34,229,139,.4)}.tag.off{color:var(--red);border-color:rgba(255,59,92,.4)}
-.msg{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
-.msg.unread{border-color:rgba(34,229,139,.5)}
-.msg pre{white-space:pre-wrap;word-break:break-word;font-family:var(--bn);margin:10px 0;color:#cdd8f5}
-.msg .h{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-.acts{display:flex;gap:8px;flex-wrap:wrap}
-/* modal */
-.ov{position:fixed;inset:0;background:rgba(2,6,16,.8);display:grid;place-items:center;padding:16px;z-index:50}
-.md{width:min(620px,100%);max-height:92vh;overflow:auto;background:var(--bg2);border:1px solid var(--line2);border-radius:18px;padding:24px}
-.md h3{font-size:20px;margin-bottom:4px}
-.help{font-size:12px;color:var(--dim);margin-top:4px}
-.chk{display:flex;align-items:center;gap:8px;margin-top:16px}.chk input{width:18px;height:18px}
-.preview{margin-top:8px;max-width:100%;max-height:160px;border-radius:10px;border:1px solid var(--line)}
-#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#0E1F47;border:1px solid var(--green);padding:10px 20px;border-radius:99px;font-size:14px;z-index:99;opacity:0;pointer-events:none;transition:.3s}
-#toast.show{opacity:1}#toast.bad{border-color:var(--red)}
-.empty{text-align:center;color:var(--muted);padding:40px 10px;border:1px dashed var(--line2);border-radius:14px}
-</style>
+<link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
 <!-- লগইন -->
-<div class="login" id="loginView">
-  <form class="box" id="loginForm">
-    <div class="mono g" style="font-size:12px">// admin</div>
+<div class="login hidden" id="loginView">
+  <form class="lbox" id="loginForm" novalidate>
+    <img class="logo" src="../assets/favicon.svg" alt="">
+    <div class="mono g" style="font-size:12px;letter-spacing:1px">// ADMIN PANEL</div>
     <h1>গুঞ্জরণ অ্যাডমিন</h1>
-    <p class="m" style="font-size:14px">শুধু অনুমোদিত অ্যাডমিনদের জন্য।</p>
-    <label for="le">ইমেইল</label><input type="email" id="le" autocomplete="username" required>
-    <label for="lp">পাসওয়ার্ড</label><input type="password" id="lp" autocomplete="current-password" required>
-    <div class="err" id="lerr"></div>
-    <button class="btn btn-p" style="width:100%;justify-content:center;margin-top:8px" type="submit">লগইন</button>
+    <p class="m" style="font-size:14px;margin-bottom:18px">শুধু অনুমোদিত অ্যাডমিনদের জন্য।</p>
+    <div class="field"><label for="le">ইমেইল</label><input type="email" id="le" autocomplete="username" required></div>
+    <div class="field"><label for="lp">পাসওয়ার্ড</label><div class="pw"><input type="password" id="lp" autocomplete="current-password" required><button type="button" id="pwt" aria-label="দেখান/লুকান">👁</button></div></div>
+    <div class="lerr" id="lerr" role="alert"></div>
+    <button class="btn p" style="width:100%;margin-top:8px;padding:13px" type="submit">লগইন করুন</button>
   </form>
 </div>
 
-<!-- ড্যাশবোর্ড -->
-<div id="appView" class="hidden">
-  <header>
-    <b>গুঞ্জরণ অ্যাডমিন</b><span class="tag" id="who"></span><span class="sp"></span>
-    <a class="btn" href="../" target="_blank" rel="noopener">সাইট দেখুন ↗</a>
-    <button class="btn" id="logout">লগআউট</button>
-  </header>
-  <nav id="tabs"></nav>
-  <main id="main"></main>
+<!-- অ্যাপ -->
+<div class="shell hidden" id="appView">
+  <aside class="side">
+    <div class="brand"><img src="../assets/favicon.svg" alt=""><div><b>গুঞ্জরণ</b><small>ADMIN PANEL</small></div></div>
+    <nav class="nav" id="nav"></nav>
+    <div class="foot">
+      <a class="btn sm" href="../" target="_blank" rel="noopener" style="justify-content:flex-start">↗ সাইট দেখুন</a>
+      <div class="who"><div class="av" id="whoav">A</div><span id="who"></span></div>
+      <button class="btn sm d" id="logout2" style="justify-content:flex-start">⎋ লগআউট</button>
+    </div>
+  </aside>
+  <div class="scrim"></div>
+  <div class="mainc">
+    <header class="top">
+      <button class="btn ico burger" id="burger" aria-label="মেনু">☰</button>
+      <h1 id="pageTitle"></h1>
+    </header>
+    <main class="page" id="page"></main>
+  </div>
 </div>
-<div id="toast"></div>
 
+<script src="../js/core/site-schema.js"></script>
 <script src="../js/core/supabase.js"></script>
-<script>
-const $=s=>document.querySelector(s);
-const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function toast(t,bad){const el=$('#toast');el.textContent=t;el.className='show'+(bad?' bad':'');clearTimeout(el._t);el._t=setTimeout(()=>el.className='',2800)}
-const fmtDate=d=>new Date(d).toLocaleString('bn-BD',{dateStyle:'medium',timeStyle:'short'});
-
-/* ---------------- কনটেন্ট রিসোর্সের কনফিগ ---------------- */
-const slugify=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
-const RES={
-  projects:{label:'প্রজেক্ট',title:r=>r.name_bn,sub:r=>`${r.category==='app'?'মোবাইল অ্যাপ':'ওয়েবসাইট'} · ${r.name_en}`,thumb:r=>r.image_url,
-    fields:[
-      {k:'name_bn',l:'নাম (বাংলা) *',t:'text',req:1},
-      {k:'name_en',l:'নাম (English) *',t:'text',req:1,help:'যেমন: Keyari · Web'},
-      {k:'category',l:'ধরন *',t:'select',opts:[['web','ওয়েবসাইট'],['app','মোবাইল অ্যাপ']]},
-      {k:'description',l:'বিবরণ',t:'textarea'},
-      {k:'url',l:'ওয়েবসাইটের ঠিকানা (ঐচ্ছিক)',t:'text'},
-      {k:'tech',l:'টেকনোলজি (কমা দিয়ে আলাদা)',t:'tags',help:'যেমন: React, Next.js, Firebase'},
-      {k:'image_url',l:'স্ক্রিনশট / ছবি (ঐচ্ছিক)',t:'image',help:'PNG/JPG/WEBP, সর্বোচ্চ ৫ MB। না দিলে ডিফল্ট মকআপ দেখাবে।'},
-      {k:'visual',l:'ব্যাকগ্রাউন্ড স্টাইল',t:'select',opts:[['v1','স্টাইল ১'],['v2','স্টাইল ২'],['v3','স্টাইল ৩']]},
-      {k:'size',l:'কার্ডের আকার',t:'select',opts:[['w','বড় (চওড়া)'],['n','ছোট']]},
-      {k:'slug',l:'Slug (ইউনিক আইডি)',t:'text',help:'ফাঁকা রাখলে ইংরেজি নাম থেকে নিজে তৈরি হবে। পরে বদলাবেন না।'},
-      {k:'sort_order',l:'ক্রম (ছোট সংখ্যা আগে)',t:'number'},
-      {k:'is_published',l:'ওয়েবসাইটে দেখাও',t:'bool'}],
-    defaults:{category:'web',visual:'v1',size:'n',sort_order:100,is_published:true,tech:[]}},
-  team_members:{label:'টিম',title:r=>r.name,sub:r=>r.role,
-    fields:[
-      {k:'name',l:'নাম *',t:'text',req:1},
-      {k:'role',l:'পদবি',t:'text',help:'যেমন: Frontend Developer'},
-      {k:'initial',l:'অবতারের অক্ষর',t:'text',help:'ফাঁকা রাখলে নামের প্রথম অক্ষর'},
-      {k:'skills',l:'স্কিল (প্রতি লাইনে একটি: নাম:শতাংশ)',t:'skills',help:'যেমন:\nFlutter:90\nFirebase:84'},
-      {k:'sort_order',l:'ক্রম',t:'number'},
-      {k:'is_published',l:'ওয়েবসাইটে দেখাও',t:'bool'}],
-    defaults:{sort_order:100,is_published:true,skills:[]}},
-  faqs:{label:'FAQ',title:r=>r.question,sub:r=>r.answer.slice(0,90),
-    fields:[
-      {k:'question',l:'প্রশ্ন *',t:'text',req:1},
-      {k:'answer',l:'উত্তর *',t:'textarea',req:1},
-      {k:'sort_order',l:'ক্রম',t:'number'},
-      {k:'is_published',l:'ওয়েবসাইটে দেখাও',t:'bool'}],
-    defaults:{sort_order:100,is_published:true}},
-  tech_stack:{label:'টেক স্ট্যাক',title:r=>r.name,sub:r=>'',
-    fields:[
-      {k:'name',l:'টেকনোলজির নাম *',t:'text',req:1},
-      {k:'sort_order',l:'ক্রম',t:'number'},
-      {k:'is_published',l:'ওয়েবসাইটে দেখাও',t:'bool'}],
-    defaults:{sort_order:100,is_published:true}}
-};
-const TABS=[...Object.keys(RES),'messages','subscribers'];
-let tab='projects',cache={},unread=0;
-
-/* ---------------- লগইন / সেশন ---------------- */
-async function checkAdmin(){
-  try{return (await sb.rpc('is_admin'))===true}catch(e){return false}
-}
-async function enter(){
-  const ok=await checkAdmin();
-  if(!ok){sb.signOut();$('#lerr').textContent='এই অ্যাকাউন্টের অ্যাডমিন অনুমতি নেই। (supabase/02-make-admin.sql চালিয়েছেন?)';return false}
-  $('#loginView').classList.add('hidden');$('#appView').classList.remove('hidden');
-  $('#who').textContent=(sb.user&&sb.user.email)||'admin';
-  await refreshUnread();renderTabs();show(tab);return true;
-}
-$('#loginForm').onsubmit=async e=>{
-  e.preventDefault();$('#lerr').textContent='';const b=e.target.querySelector('button');b.disabled=true;
-  try{await sb.signIn($('#le').value.trim(),$('#lp').value);await enter()}
-  catch(err){$('#lerr').textContent=err.status===400?'ইমেইল বা পাসওয়ার্ড ভুল।':'লগইন ব্যর্থ: '+err.message}
-  finally{b.disabled=false}
-};
-$('#logout').onclick=()=>{sb.signOut();location.reload()};
-if(sb.session){enter().then(ok=>{if(!ok)$('#loginView').classList.remove('hidden')})}
-
-/* ---------------- ট্যাব ---------------- */
-const tabName=t=>RES[t]?RES[t].label:t==='messages'?'বার্তা':'সাবস্ক্রাইবার';
-function renderTabs(){
-  $('#tabs').innerHTML=TABS.map(t=>`<button data-t="${t}" class="${t===tab?'on':''}">${tabName(t)}${t==='messages'&&unread?`<span class="cnt">${unread}</span>`:''}</button>`).join('');
-  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;renderTabs();show(tab)});
-}
-async function refreshUnread(){
-  try{const r=await sb.select('contact_messages','select=id&is_read=eq.false');unread=r.length}catch(e){}
-}
-function show(t){
-  if(RES[t])return showResource(t);
-  if(t==='messages')return showMessages();
-  return showSubscribers();
-}
-const fail=e=>toast('ত্রুটি: '+e.message,true);
-
-/* ---------------- জেনেরিক CRUD ---------------- */
-async function showResource(t){
-  const R=RES[t];$('#main').innerHTML='<p class="m">লোড হচ্ছে...</p>';
-  try{
-    const rows=await sb.select(t,'select=*&order=sort_order.asc,created_at.asc');cache[t]=rows;
-    $('#main').innerHTML=`<div class="bar"><h2>${R.label} <span class="m" style="font-size:14px">(${rows.length})</span></h2><button class="btn btn-p" id="add">+ নতুন যোগ করুন</button></div>`+
-    (rows.length?rows.map(r=>`<div class="row">${R.thumb?`<img class="thumb" src="${esc(R.thumb(r)||'')}" alt="" onerror="this.style.visibility='hidden'">`:''}<div class="t"><b>${esc(R.title(r))}</b><small>${esc(R.sub(r))}</small></div><span class="tag ${r.is_published?'on':'off'}">${r.is_published?'প্রকাশিত':'লুকানো'}</span><button class="btn" data-e="${r.id}">এডিট</button><button class="btn btn-d" data-d="${r.id}">মুছুন</button></div>`).join(''):'<div class="empty">এখনো কিছু নেই। "+ নতুন যোগ করুন" চাপুন।</div>');
-    $('#add').onclick=()=>openForm(t,null);
-    document.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>openForm(t,rows.find(x=>x.id===b.dataset.e)));
-    document.querySelectorAll('[data-d]').forEach(b=>b.onclick=async()=>{
-      const r=rows.find(x=>x.id===b.dataset.d);
-      if(!confirm(`"${R.title(r)}" মুছে ফেলবেন? এটি ফেরানো যাবে না।`))return;
-      try{await sb.remove(t,'id=eq.'+r.id);toast('✓ মুছে ফেলা হয়েছে');showResource(t)}catch(e){fail(e)}
-    });
-  }catch(e){$('#main').innerHTML=`<div class="empty">ডেটা লোড হয়নি: ${esc(e.message)}<br><small>supabase/01-schema.sql চালিয়েছেন কিনা দেখুন।</small></div>`}
-}
-
-function fieldHTML(f,v){
-  const id='f_'+f.k,h=f.help?`<div class="help">${esc(f.help).replace(/\n/g,'<br>')}</div>`:'';
-  if(f.t==='bool')return `<label class="chk"><input type="checkbox" id="${id}" ${v?'checked':''}>${esc(f.l)}</label>`;
-  let inp='';
-  if(f.t==='textarea')inp=`<textarea id="${id}">${esc(v||'')}</textarea>`;
-  else if(f.t==='select')inp=`<select id="${id}">${f.opts.map(o=>`<option value="${o[0]}" ${o[0]===v?'selected':''}>${esc(o[1])}</option>`).join('')}</select>`;
-  else if(f.t==='number')inp=`<input type="number" id="${id}" value="${esc(v??0)}">`;
-  else if(f.t==='tags')inp=`<input type="text" id="${id}" value="${esc((v||[]).join(', '))}">`;
-  else if(f.t==='skills')inp=`<textarea id="${id}">${esc((v||[]).map(s=>s.name+':'+s.level).join('\n'))}</textarea>`;
-  else if(f.t==='image')inp=`<input type="file" id="${id}" accept="image/png,image/jpeg,image/webp,image/gif">${v?`<img class="preview" id="${id}_pv" src="${esc(v)}" alt=""><label class="chk" style="margin-top:8px"><input type="checkbox" id="${id}_rm">ছবি সরিয়ে ফেলুন</label>`:''}`;
-  else inp=`<input type="text" id="${id}" value="${esc(v||'')}">`;
-  return `<label for="${id}">${esc(f.l)}</label>${inp}${h}`;
-}
-
-function openForm(t,row){
-  const R=RES[t],isNew=!row,data=row||R.defaults;
-  const ov=document.createElement('div');ov.className='ov';
-  ov.innerHTML=`<form class="md"><h3>${isNew?'নতুন '+R.label:R.label+' এডিট'}</h3>${R.fields.map(f=>fieldHTML(f,data[f.k])).join('')}<div class="err" id="ferr"></div>
-  <div style="display:flex;gap:10px;margin-top:18px;justify-content:flex-end"><button type="button" class="btn" id="cancel">বাতিল</button><button type="submit" class="btn btn-p">সেভ করুন</button></div></form>`;
-  document.body.appendChild(ov);
-  const close=()=>ov.remove();
-  ov.querySelector('#cancel').onclick=close;
-  ov.addEventListener('mousedown',e=>{if(e.target===ov)close()});
-  ov.querySelector('form').onsubmit=async e=>{
-    e.preventDefault();const err=ov.querySelector('#ferr');err.textContent='';
-    const btn=e.target.querySelector('[type=submit]');btn.disabled=true;btn.textContent='সেভ হচ্ছে...';
-    try{
-      const out={};
-      for(const f of R.fields){
-        const el=ov.querySelector('#f_'+f.k);let v;
-        if(f.t==='bool')v=el.checked;
-        else if(f.t==='number')v=parseInt(el.value,10)||0;
-        else if(f.t==='tags')v=el.value.split(',').map(x=>x.trim()).filter(Boolean);
-        else if(f.t==='skills')v=el.value.split('\n').map(x=>x.trim()).filter(Boolean).map(x=>{const i=x.lastIndexOf(':');const n=(i>0?x.slice(0,i):x).trim();const l=i>0?parseInt(x.slice(i+1),10):80;return{name:n,level:Math.max(0,Math.min(100,isNaN(l)?80:l))}});
-        else if(f.t==='image'){
-          v=row?row[f.k]||null:null;
-          if(ov.querySelector('#f_'+f.k+'_rm')?.checked)v=null;
-          const file=el.files[0];
-          if(file){
-            if(file.size>5*1024*1024)throw new Error('ছবি ৫ MB এর বেশি হতে পারবে না');
-            const ext=(file.name.split('.').pop()||'png').toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,5)||'png';
-            v=await sb.upload('project-images',`projects/${Date.now()}-${Math.random().toString(36).slice(2,8)}.${ext}`,file);
-          }
-        }
-        else{v=el.value.trim();if(f.req&&!v)throw new Error(f.l.replace(' *','')+' অবশ্যই দিতে হবে')}
-        out[f.k]=v;
-      }
-      if(t==='projects'){
-        out.slug=slugify(out.slug)||slugify(out.name_en)||(row&&row.slug)||'p-'+Date.now().toString(36);
-        out.url=out.url||null;
-      }
-      if(t==='team_members'&&!out.initial)out.initial=[...out.name][0]||'';
-      if(isNew)await sb.insert(t,out);else await sb.update(t,'id=eq.'+row.id,out);
-      close();toast('✓ সেভ হয়েছে');showResource(t);
-    }catch(ex){
-      err.textContent=(ex.code==='23505'?'এই নাম/Slug আগেই আছে — অন্যটি দিন। ':'')+ex.message;
-      btn.disabled=false;btn.textContent='সেভ করুন';
-    }
-  };
-}
-
-/* ---------------- বার্তা ---------------- */
-const SVC={website:'ওয়েবসাইট',mobile_app:'মোবাইল অ্যাপ',ui_ux:'UI/UX',other:'অন্যান্য'};
-async function showMessages(){
-  $('#main').innerHTML='<p class="m">লোড হচ্ছে...</p>';
-  try{
-    const rows=await sb.select('contact_messages','select=*&order=created_at.desc&limit=200');
-    unread=rows.filter(r=>!r.is_read).length;renderTabs();
-    $('#main').innerHTML=`<div class="bar"><h2>কন্টাক্ট বার্তা <span class="m" style="font-size:14px">(${rows.length})</span></h2></div>`+
-    (rows.length?rows.map(r=>`<div class="msg ${r.is_read?'':'unread'}"><div class="h"><div><b>${esc(r.name)}</b> <span class="mono g" style="font-size:13px">${esc(r.contact)}</span></div><span class="m" style="font-size:12px">${fmtDate(r.created_at)}</span></div>
-      <div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap">${(r.services||[]).map(s=>`<span class="tag">${esc(SVC[s]||s)}</span>`).join('')}${r.budget!=null?`<span class="tag on">বাজেট ৳${Number(r.budget).toLocaleString('en-IN')}</span>`:''}</div>
-      <pre>${esc(r.message)}</pre>
-      <div class="acts"><button class="btn" data-r="${r.id}" data-v="${r.is_read?0:1}">${r.is_read?'অপঠিত করুন':'পড়া হয়েছে'}</button><button class="btn btn-d" data-x="${r.id}">মুছুন</button></div></div>`).join(''):'<div class="empty">এখনো কোনো বার্তা আসেনি।</div>');
-    document.querySelectorAll('[data-r]').forEach(b=>b.onclick=async()=>{try{await sb.update('contact_messages','id=eq.'+b.dataset.r,{is_read:b.dataset.v==='1'});showMessages()}catch(e){fail(e)}});
-    document.querySelectorAll('[data-x]').forEach(b=>b.onclick=async()=>{if(!confirm('বার্তাটি মুছে ফেলবেন?'))return;try{await sb.remove('contact_messages','id=eq.'+b.dataset.x);showMessages()}catch(e){fail(e)}});
-  }catch(e){$('#main').innerHTML=`<div class="empty">লোড হয়নি: ${esc(e.message)}</div>`}
-}
-
-/* ---------------- সাবস্ক্রাইবার ---------------- */
-async function showSubscribers(){
-  $('#main').innerHTML='<p class="m">লোড হচ্ছে...</p>';
-  try{
-    const rows=await sb.select('newsletter_subscribers','select=*&order=created_at.desc&limit=1000');
-    $('#main').innerHTML=`<div class="bar"><h2>নিউজলেটার সাবস্ক্রাইবার <span class="m" style="font-size:14px">(${rows.length})</span></h2><button class="btn" id="csv">CSV ডাউনলোড</button></div>`+
-    (rows.length?rows.map(r=>`<div class="row"><div class="t"><b>${esc(r.email)}</b><small>${fmtDate(r.created_at)}</small></div><button class="btn btn-d" data-x="${r.id}">মুছুন</button></div>`).join(''):'<div class="empty">এখনো কেউ যুক্ত হয়নি।</div>');
-    $('#csv').onclick=()=>{
-      const q=v=>'"'+String(v).replace(/"/g,'""').replace(/^([=+\-@])/,"'$1")+'"';
-      const csv='email,subscribed_at\n'+rows.map(r=>q(r.email)+','+q(r.created_at)).join('\n');
-      const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));a.download='subscribers.csv';a.click();
-    };
-    document.querySelectorAll('[data-x]').forEach(b=>b.onclick=async()=>{if(!confirm('মুছে ফেলবেন?'))return;try{await sb.remove('newsletter_subscribers','id=eq.'+b.dataset.x);showSubscribers()}catch(e){fail(e)}});
-  }catch(e){$('#main').innerHTML=`<div class="empty">লোড হয়নি: ${esc(e.message)}</div>`}
-}
-</script>
+<script src="js/ui.js"></script>
+<script src="js/img.js"></script>
+<script src="js/pages/content.js"></script>
+<script src="js/pages/editor.js"></script>
+<script src="js/pages/inbox.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 .mb .mh{height:240px;display:grid;place-items:center;border-bottom:1px solid var(--line);position:relative}
 .mb .mc{padding:32px}
 .mb h3{font-size:30px}
-.mb .x{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(4,10,24,.7);border:1px solid var(--line2);font-size:18px}
+.mb .x{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(var(--bg-rgb),.7);border:1px solid var(--line2);font-size:18px}
 .mb .x:hover{border-color:var(--red);color:var(--red)}
 .cs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}
 .cs div{padding:14px;border-radius:12px;border:1px solid var(--line);background:rgba(10,24,56,.6)}

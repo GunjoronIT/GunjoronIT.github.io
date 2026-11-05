@@ -13,27 +13,27 @@
 
 /* === 1. ADVANCED CARD EFFECTS === */
 @keyframes borderSpin{to{--border-angle:360deg}}
-@keyframes cardInnerGlow{0%,100%{box-shadow:inset 0 0 30px rgba(34,229,139,0)}50%{box-shadow:inset 0 0 30px rgba(34,229,139,.06)}}
+@keyframes cardInnerGlow{0%,100%{box-shadow:inset 0 0 30px rgba(var(--green-rgb),0)}50%{box-shadow:inset 0 0 30px rgba(var(--green-rgb),.06)}}
 
 .card{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);will-change:transform,border-color;contain:layout style}
-.card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 20px 60px -15px rgba(0,0,0,.6),0 0 40px -10px rgba(34,229,139,.15)}
-.card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1.5px;background:conic-gradient(from var(--border-angle),transparent 40%,rgba(34,229,139,.6) 50%,rgba(61,123,255,.6) 60%,transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .4s;pointer-events:none;z-index:1;animation:borderSpin 4s linear infinite}
+.card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 20px 60px -15px rgba(0,0,0,.6),0 0 40px -10px rgba(var(--green-rgb),.15)}
+.card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1.5px;background:conic-gradient(from var(--border-angle),transparent 40%,rgba(var(--green-rgb),.6) 50%,rgba(var(--blue-rgb),.6) 60%,transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .4s;pointer-events:none;z-index:1;animation:borderSpin 4s linear infinite}
 .card:hover::after{opacity:1}
 .card:hover{animation:cardInnerGlow 3s ease-in-out infinite}
 
 /* === 2. HERO ENHANCEMENTS === */
 /* Gradient mesh background */
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
-  radial-gradient(ellipse 600px 400px at 20% 30%,rgba(34,229,139,.12),transparent),
-  radial-gradient(ellipse 500px 500px at 70% 60%,rgba(61,123,255,.1),transparent),
-  radial-gradient(ellipse 800px 300px at 50% 80%,rgba(34,229,139,.06),transparent);
+  radial-gradient(ellipse 600px 400px at 20% 30%,rgba(var(--green-rgb),.12),transparent),
+  radial-gradient(ellipse 500px 500px at 70% 60%,rgba(var(--blue-rgb),.1),transparent),
+  radial-gradient(ellipse 800px 300px at 50% 80%,rgba(var(--green-rgb),.06),transparent);
   animation:heroMesh 12s ease-in-out infinite alternate;pointer-events:none}
 @keyframes heroMesh{0%{opacity:.6;filter:blur(60px)}50%{opacity:1;filter:blur(40px)}100%{opacity:.7;filter:blur(50px)}}
 
 /* Floating orbs */
 .hero-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(40px);animation:orbDrift 8s ease-in-out infinite alternate;z-index:-1}
-.hero-orb:nth-child(1){width:200px;height:200px;background:rgba(34,229,139,.12);top:15%;left:5%;animation-duration:10s}
-.hero-orb:nth-child(2){width:160px;height:160px;background:rgba(61,123,255,.1);bottom:20%;right:10%;animation-delay:-3s;animation-duration:12s}
+.hero-orb:nth-child(1){width:200px;height:200px;background:rgba(var(--green-rgb),.12);top:15%;left:5%;animation-duration:10s}
+.hero-orb:nth-child(2){width:160px;height:160px;background:rgba(var(--blue-rgb),.1);bottom:20%;right:10%;animation-delay:-3s;animation-duration:12s}
 .hero-orb:nth-child(3){width:120px;height:120px;background:rgba(122,162,255,.08);top:40%;right:30%;animation-delay:-5s;animation-duration:9s}
 @keyframes orbDrift{0%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.1)}66%{transform:translate(-15px,25px) scale(.9)}100%{transform:translate(20px,-10px) scale(1.05)}}
 
@@ -42,7 +42,7 @@
 h1 .grad{background-size:300% 100%;animation:shimmerGrad 6s linear infinite}
 
 /* Live indicator pulse glow */
-@keyframes livePulse{0%,100%{box-shadow:0 0 10px rgba(34,229,139,.9)}50%{box-shadow:0 0 22px rgba(34,229,139,1),0 0 40px rgba(34,229,139,.5)}}
+@keyframes livePulse{0%,100%{box-shadow:0 0 10px rgba(var(--green-rgb),.9)}50%{box-shadow:0 0 22px rgba(var(--green-rgb),1),0 0 40px rgba(var(--green-rgb),.5)}}
 .avail .live{animation:livePulse 2s ease-in-out infinite}
 
 /* === 3. SECTION TRANSITIONS — animated divider === */
@@ -64,16 +64,16 @@ section .section-glow-dot{position:absolute;bottom:-1px;left:50%;width:6px;heigh
 
 /* Pulsing glow ring on CTA */
 .btn-x::after{content:"";position:absolute;inset:-3px;border-radius:16px;border:1px solid transparent;animation:ctaPulseRing 3s ease-in-out infinite;pointer-events:none}
-@keyframes ctaPulseRing{0%,100%{border-color:rgba(34,229,139,0);box-shadow:none}50%{border-color:rgba(34,229,139,.3);box-shadow:0 0 20px rgba(34,229,139,.15)}}
+@keyframes ctaPulseRing{0%,100%{border-color:rgba(var(--green-rgb),0);box-shadow:none}50%{border-color:rgba(var(--green-rgb),.3);box-shadow:0 0 20px rgba(var(--green-rgb),.15)}}
 
 /* Ripple effect container (JS adds .ripple-ink spans) */
-.ripple-ink{position:absolute;border-radius:50%;background:rgba(34,229,139,.25);transform:scale(0);animation:rippleAnim .6s ease-out;pointer-events:none;z-index:10}
+.ripple-ink{position:absolute;border-radius:50%;background:rgba(var(--green-rgb),.25);transform:scale(0);animation:rippleAnim .6s ease-out;pointer-events:none;z-index:10}
 @keyframes rippleAnim{to{transform:scale(4);opacity:0}}
 
 /* === 5. TYPOGRAPHY ANIMATIONS === */
 /* Glowing headings on reveal */
 .sh.in h2{text-shadow:0 0 0px transparent;animation:headingGlow 1.5s ease-out forwards .3s}
-@keyframes headingGlow{0%{text-shadow:0 0 0px transparent}50%{text-shadow:0 0 30px rgba(34,229,139,.2)}100%{text-shadow:0 0 12px rgba(34,229,139,.08)}}
+@keyframes headingGlow{0%{text-shadow:0 0 0px transparent}50%{text-shadow:0 0 30px rgba(var(--green-rgb),.2)}100%{text-shadow:0 0 12px rgba(var(--green-rgb),.08)}}
 
 /* Moving gradient on .hl */
 @keyframes hlGradMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
@@ -81,16 +81,16 @@ h2 .hl{background-size:200% 200%;animation:hlGradMove 4s ease-in-out infinite}
 
 /* === 6. NAVIGATION ENHANCEMENT === */
 /* Aurora gradient border */
-@keyframes navAurora{0%{border-color:rgba(61,123,255,.15)}33%{border-color:rgba(34,229,139,.2)}66%{border-color:rgba(122,162,255,.18)}100%{border-color:rgba(61,123,255,.15)}}
+@keyframes navAurora{0%{border-color:rgba(var(--blue-rgb),.15)}33%{border-color:rgba(var(--green-rgb),.2)}66%{border-color:rgba(122,162,255,.18)}100%{border-color:rgba(var(--blue-rgb),.15)}}
 nav{animation:navAurora 6s ease-in-out infinite}
 
 /* Active link sliding indicator */
 .links a{position:relative}
-.links a::after{content:"";position:absolute;bottom:2px;left:50%;width:0;height:2px;background:var(--green);border-radius:2px;transform:translateX(-50%);transition:width .3s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 8px rgba(34,229,139,.5)}
+.links a::after{content:"";position:absolute;bottom:2px;left:50%;width:0;height:2px;background:var(--green);border-radius:2px;transform:translateX(-50%);transition:width .3s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 8px rgba(var(--green-rgb),.5)}
 .links a.on::after,.links a:hover::after{width:60%}
 
 /* === 7. SCROLL PROGRESS ENHANCEMENT === */
-#prog{height:3px;box-shadow:0 0 16px rgba(34,229,139,.6),0 0 30px rgba(34,229,139,.3);background:linear-gradient(90deg,var(--blue),var(--green),#7FF5C0,var(--green))!important;background-size:200% 100%;animation:progShimmer 2s linear infinite}
+#prog{height:3px;box-shadow:0 0 16px rgba(var(--green-rgb),.6),0 0 30px rgba(var(--green-rgb),.3);background:linear-gradient(90deg,var(--blue),var(--green),#7FF5C0,var(--green))!important;background-size:200% 100%;animation:progShimmer 2s linear infinite}
 @keyframes progShimmer{0%{background-position:0% 0}100%{background-position:200% 0}}
 
 /* === 8. TEAM CARDS === */
@@ -100,7 +100,7 @@ nav{animation:navAurora 6s ease-in-out infinite}
 
 /* Avatar rotating border gradient */
 .av{position:relative}
-.av::before{content:"";position:absolute;inset:-2px;border-radius:15px;background:conic-gradient(from var(--border-angle),transparent 30%,rgba(34,229,139,.5) 50%,rgba(61,123,255,.5) 70%,transparent 90%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);padding:2px;animation:borderSpin 6s linear infinite;opacity:0;transition:opacity .4s;z-index:2}
+.av::before{content:"";position:absolute;inset:-2px;border-radius:15px;background:conic-gradient(from var(--border-angle),transparent 30%,rgba(var(--green-rgb),.5) 50%,rgba(var(--blue-rgb),.5) 70%,transparent 90%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);padding:2px;animation:borderSpin 6s linear infinite;opacity:0;transition:opacity .4s;z-index:2}
 .tm:hover .av::before{opacity:1}
 
 /* === 9. TERMINAL ENHANCEMENT === */
@@ -110,31 +110,31 @@ nav{animation:navAurora 6s ease-in-out infinite}
 
 /* Typing cursor glow */
 .term-in input{text-shadow:0 0 0px transparent;transition:text-shadow .3s}
-.term-in input:focus{text-shadow:0 0 6px rgba(34,229,139,.3)}
-@keyframes termCursorGlow{0%,100%{box-shadow:0 0 4px rgba(34,229,139,.5)}50%{box-shadow:0 0 12px rgba(34,229,139,.8)}}
+.term-in input:focus{text-shadow:0 0 6px rgba(var(--green-rgb),.3)}
+@keyframes termCursorGlow{0%,100%{box-shadow:0 0 4px rgba(var(--green-rgb),.5)}50%{box-shadow:0 0 12px rgba(var(--green-rgb),.8)}}
 
 /* === 10. FOOTER === */
 /* GUNJORON text: ওপর থেকে নিচে ফেড হওয়া হালকা নেভি-নীল (স্থির) */
 .giant{animation:none!important;background:linear-gradient(180deg,rgba(120,160,255,.18),transparent 85%)!important;background-size:auto!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
 
 /* Footer sparkle effect */
-.footer-sparkle{position:absolute;width:2px;height:2px;background:rgba(34,229,139,.7);border-radius:50%;pointer-events:none;animation:sparkleFloat 3s ease-out forwards}
+.footer-sparkle{position:absolute;width:2px;height:2px;background:rgba(var(--green-rgb),.7);border-radius:50%;pointer-events:none;animation:sparkleFloat 3s ease-out forwards}
 @keyframes sparkleFloat{0%{opacity:1;transform:translateY(0) scale(1)}50%{opacity:.6}100%{opacity:0;transform:translateY(-40px) scale(0)}}
 
 /* === 11. MOUSE TRAIL === */
-.mouse-trail-dot{position:fixed;width:4px;height:4px;border-radius:50%;background:rgba(34,229,139,.5);pointer-events:none;z-index:999;transition:opacity .3s;will-change:transform,opacity}
+.mouse-trail-dot{position:fixed;width:4px;height:4px;border-radius:50%;background:rgba(var(--green-rgb),.5);pointer-events:none;z-index:999;transition:opacity .3s;will-change:transform,opacity}
 
 /* === 12. MICRO-INTERACTIONS === */
 /* Chip bounce on hover */
 .chip{transition:transform .3s cubic-bezier(.2,1.4,.4,1),border-color .3s,color .3s}
-.chip:hover{transform:translateY(-3px) scale(1.05);border-color:rgba(34,229,139,.4);color:var(--green)}
+.chip:hover{transform:translateY(-3px) scale(1.05);border-color:rgba(var(--green-rgb),.4);color:var(--green)}
 
 /* FAQ icon rotation with spring */
 .fq button i{transition:transform .4s cubic-bezier(.2,1.3,.4,1)!important}
 .fq.open button i{transform:rotate(45deg) scale(1.1)!important}
 
 /* Form input glow border animation */
-@keyframes inputBorderGlow{0%{box-shadow:0 0 0 2px rgba(34,229,139,0)}50%{box-shadow:0 0 0 4px rgba(34,229,139,.15)}100%{box-shadow:0 0 0 2px rgba(34,229,139,0)}}
+@keyframes inputBorderGlow{0%{box-shadow:0 0 0 2px rgba(var(--green-rgb),0)}50%{box-shadow:0 0 0 4px rgba(var(--green-rgb),.15)}100%{box-shadow:0 0 0 2px rgba(var(--green-rgb),0)}}
 input:focus,textarea:focus{animation:inputBorderGlow 2s ease-in-out infinite}
 
 /* Service number animated */

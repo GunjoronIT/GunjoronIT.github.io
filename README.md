@@ -8,7 +8,9 @@ Pure HTML + CSS + JavaScript — কোনো framework বা build step লা
 
 ```
 .
-├── index.html              # একমাত্র HTML (রিপোর রুটে)
+├── index.html              # ওয়েবসাইট (রিপোর রুটে)
+├── admin/                  # অ্যাডমিন প্যানেল (index.html, admin.css, js/)
+├── supabase/               # 01-schema, 02-make-admin, 03-cms-upgrade SQL
 ├── robots.txt
 ├── .nojekyll               # GitHub Pages-এ Jekyll বন্ধ রাখে
 ├── assets/
@@ -34,7 +36,11 @@ Pure HTML + CSS + JavaScript — কোনো framework বা build step লা
 
 ## কনটেন্ট বদলানো
 
-প্রজেক্ট, টিম সদস্য, FAQ ও টেক স্ট্যাক — সব `js/core/data.js` ফাইলে।
+সবকিছু **অ্যাডমিন প্যানেল** (`/admin/`) থেকে বদলানো যায়: লেখা, ডিজাইন/রঙ, অ্যানিমেশন, প্রজেক্ট (একাধিক ছবিসহ), টিম (ছবিসহ), FAQ, টেক স্ট্যাক। সেটআপের জন্য `SETUP-SUPABASE.md` দেখুন।
+
+`js/core/data.js` শুধু ডিফল্ট/ব্যাকআপ কনটেন্ট — Supabase না পেলে এটি দেখানো হয়।
+সাইটের প্রতিটি লেখায় `data-t="..."` অ্যাট্রিবিউট আছে; অ্যাডমিন এগুলো পড়েই এডিটর বানায়। নতুন লেখা যোগ করলে `data-t="section.N"` দিয়ে দিন।
+নতুন ডিজাইন/অ্যানিমেশন অপশন যোগ করতে `js/core/site-schema.js`-এ লাইন যোগ করুন।
 
 ## লোকাল রান
 

@@ -10,6 +10,8 @@
 <meta property="og:title" content="Gunjoron IT Team | গুঞ্জরণ আইটি টিম">
 <meta property="og:description" content="ওয়েবসাইট, মোবাইল অ্যাপ ও UI/UX ডিজাইন। আমরা আইডিয়াকে কোডে রূপ দিই।">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script src="js/core/site-schema.js"></script>
+<script src="js/core/theme-boot.js"></script>
 
 <!-- Fonts (self-hosted) -->
 <link rel="preload" href="fonts/noto-serif-bengali-bengali-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -32,6 +34,7 @@
 <link rel="stylesheet" href="css/sections/stack.css">
 <link rel="stylesheet" href="css/sections/projects.css">
 <link rel="stylesheet" href="css/components/modal.css">
+<link rel="stylesheet" href="css/components/gallery.css">
 <link rel="stylesheet" href="css/sections/process.css">
 <link rel="stylesheet" href="css/sections/team.css">
 <link rel="stylesheet" href="css/sections/stats.css">
@@ -46,6 +49,7 @@
 <link rel="stylesheet" href="css/effects/animations.css">
 <link rel="stylesheet" href="css/effects/polish.css">
 <link rel="stylesheet" href="css/effects/responsive-fixes.css">
+<link rel="stylesheet" href="css/effects/settings.css">
 </head>
 <body class="loading">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -70,25 +74,25 @@
 <div class="cur"></div><div class="cur-dot"></div>
 
 <nav id="nav">
-  <a href="#home" class="logo"><svg class="mk" viewBox="0 0 64 64" aria-hidden="true"><use href="#gj-logo"/></svg><span>গুঞ্জরণ<small>IT TEAM</small></span></a>
+  <a href="#home" class="logo"><svg class="mk" viewBox="0 0 64 64" aria-hidden="true"><use href="#gj-logo"/></svg><span><span data-t="nav.1">গুঞ্জরণ</span><small data-t="nav.2">IT TEAM</small></span></a>
   <div class="links">
-    <a href="#about">আমরা</a><a href="#services">সার্ভিস</a><a href="#projects">প্রজেক্ট</a><a href="#team">টিম</a><a href="#terminal">টার্মিনাল</a><a href="#contact">যোগাযোগ</a>
+    <a href="#about" data-t="nav.3">আমরা</a><a href="#services" data-t="nav.4">সার্ভিস</a><a href="#projects" data-t="nav.5">প্রজেক্ট</a><a href="#team" data-t="nav.6">টিম</a><a href="#terminal" data-t="nav.7">টার্মিনাল</a><a href="#contact" data-t="nav.8">যোগাযোগ</a>
   </div>
   <div class="nav-r">
-    <button class="kbd" id="palBtn" aria-label="কমান্ড প্যালেট খুলুন">⌘ K</button>
-    <a href="#contact" class="btn btn-p btn-sm mag">প্রজেক্ট শুরু করুন</a>
+    <button class="kbd" id="palBtn" aria-label="কমান্ড প্যালেট খুলুন" data-t="nav.9">⌘ K</button>
+    <a href="#contact" class="btn btn-p btn-sm mag" data-t="nav.10">প্রজেক্ট শুরু করুন</a>
     <button class="burger" id="burger" aria-label="মেনু"><i></i><i></i></button>
   </div>
 </nav>
 <div class="mnav" id="mnav" aria-hidden="true">
   <div class="mn-top">~/gunjoron <span class="g">$</span> ls ./pages</div>
-  <a class="ml" href="#about">আমরা<em>about.tsx</em></a>
-  <a class="ml" href="#services">সার্ভিস<em>services.tsx</em></a>
-  <a class="ml" href="#projects">প্রজেক্ট<em>projects.tsx</em></a>
-  <a class="ml" href="#team">টিম<em>team.tsx</em></a>
-  <a class="ml" href="#terminal">টার্মিনাল<em>shell.sh</em></a>
-  <a class="ml" href="#contact">যোগাযোগ<em>contact.tsx</em></a>
-  <div class="mn-foot"><a href="#contact" class="btn btn-p">প্রজেক্ট শুরু করুন →</a><button class="btn btn-o" id="mSearch" style="flex:0 0 auto">⌕ খুঁজুন</button></div>
+  <a class="ml" href="#about"><span data-t="mnav.1">আমরা</span><em>about.tsx</em></a>
+  <a class="ml" href="#services"><span data-t="mnav.2">সার্ভিস</span><em>services.tsx</em></a>
+  <a class="ml" href="#projects"><span data-t="mnav.3">প্রজেক্ট</span><em>projects.tsx</em></a>
+  <a class="ml" href="#team"><span data-t="mnav.4">টিম</span><em>team.tsx</em></a>
+  <a class="ml" href="#terminal"><span data-t="mnav.5">টার্মিনাল</span><em>shell.sh</em></a>
+  <a class="ml" href="#contact"><span data-t="mnav.6">যোগাযোগ</span><em>contact.tsx</em></a>
+  <div class="mn-foot"><a href="#contact" class="btn btn-p" data-t="mnav.7">প্রজেক্ট শুরু করুন →</a><button class="btn btn-o" id="mSearch" style="flex:0 0 auto" data-t="mnav.8">⌕ খুঁজুন</button></div>
   <div class="mn-st"><span><span class="g">●</span> main</span><span>6 files · UTF-8</span></div>
 </div>
 
@@ -96,43 +100,43 @@
 <header class="hero" id="home">
   <div class="wrap">
     <div>
-      <a href="#contact" class="avail rv" aria-label="নতুন প্রজেক্ট নিচ্ছি, যোগাযোগ করুন"><span class="live"></span><span class="tx">নতুন প্রজেক্ট নিচ্ছি</span><span class="yr">২০২৬</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-      <h1 class="rv d1">আমরা আইডিয়াকে<br><span class="grad">কোডে রূপ দিই।</span></h1>
-      <div class="type rv d2"><span class="p">&gt; </span>বানাই <b id="typed"></b><span class="caret"></span></div>
-      <p class="lead rv d3">গুঞ্জরণ আইটি টিম হলো চারজন প্রোগ্রামার ও ডিজাইনারের একটি দল। আমরা পরিষ্কার কোড আর যত্নের ডিজাইনে দ্রুত, সুন্দর ও কার্যকর ডিজিটাল প্রোডাক্ট বানাই।</p>
+      <a href="#contact" class="avail rv" aria-label="নতুন প্রজেক্ট নিচ্ছি, যোগাযোগ করুন"><span class="live"></span><span class="tx" data-t="home.1">নতুন প্রজেক্ট নিচ্ছি</span><span class="yr" data-t="home.2">২০২৬</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <h1 class="rv d1"><span data-t="home.3">আমরা আইডিয়াকে</span><br><span class="grad" data-t="home.4">কোডে রূপ দিই।</span></h1>
+      <div class="type rv d2"><span class="p">&gt; </span><span data-t="home.5">বানাই</span> <b id="typed"></b><span class="caret"></span></div>
+      <p class="lead rv d3" data-t="home.6">গুঞ্জরণ আইটি টিম হলো চারজন প্রোগ্রামার ও ডিজাইনারের একটি দল। আমরা পরিষ্কার কোড আর যত্নের ডিজাইনে দ্রুত, সুন্দর ও কার্যকর ডিজিটাল প্রোডাক্ট বানাই।</p>
       <div class="cta rv d4">
-        <a href="#projects" class="btn-x go mag">আমাদের কাজ দেখুন<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
-        <a href="#terminal" class="btn-x sh2 mag">টার্মিনাল চালান<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 4-5 4M13 17h6"/></svg></span></a>
+        <a href="#projects" class="btn-x go mag"><span data-t="home.7">আমাদের কাজ দেখুন</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a href="#terminal" class="btn-x sh2 mag"><span data-t="home.8">টার্মিনাল চালান</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 4-5 4M13 17h6"/></svg></span></a>
       </div>
       <div class="hero-meta rv d5">
-        <div class="hm"><small>// shipped</small><b data-count="5">0</b><span>প্রজেক্ট</span></div>
-        <div class="hm"><small>// builders</small><b data-count="4">0</b><span>সদস্য</span></div>
-        <div class="hm"><small>// stack</small><b>Web<i>/</i>App</b><span>প্ল্যাটফর্ম</span></div>
+        <div class="hm"><small data-t="home.9">// shipped</small><b data-count="5">0</b><span data-t="home.10">প্রজেক্ট</span></div>
+        <div class="hm"><small data-t="home.11">// builders</small><b data-count="4">0</b><span data-t="home.12">সদস্য</span></div>
+        <div class="hm"><small data-t="home.13">// stack</small><b>Web<i>/</i>App</b><span data-t="home.14">প্ল্যাটফর্ম</span></div>
       </div>
     </div>
     <div class="hero-vis rv d2">
       <div class="ide" id="ide">
-        <div class="ide-top"><i></i><i></i><i></i><span class="tab">gunjoron.ts</span></div>
+        <div class="ide-top"><i></i><i></i><i></i><span class="tab" data-t="home.15">gunjoron.ts</span></div>
         <pre id="code"></pre>
-        <div class="ide-foot"><span>TypeScript · UTF-8</span><span class="ok">● build passed</span></div>
+        <div class="ide-foot"><span data-t="home.16">TypeScript · UTF-8</span><span class="ok" data-t="home.17">● build passed</span></div>
       </div>
-      <div class="float" style="top:-18px;right:-14px"><span class="g">✓</span> deploy সফল</div>
-      <div class="float" style="bottom:40px;left:-30px;animation-delay:-3s"><span class="b">◆</span> Lighthouse <b class="g">100</b></div>
+      <div class="float" style="top:-18px;right:-14px"><span class="g">✓</span> <span data-t="home.18">deploy সফল</span></div>
+      <div class="float" style="bottom:40px;left:-30px;animation-delay:-3s"><span class="b">◆</span> <span data-t="home.19">Lighthouse</span> <b class="g" data-t="home.20">100</b></div>
     </div>
   </div>
-  <div class="scroll-ind">SCROLL<i></i></div>
+  <div class="scroll-ind"><span data-t="home.21">SCROLL</span><i></i></div>
 </header>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="wrap">
-    <div class="sh rv"><div class="idx">about</div><h2>কোড আমাদের ভাষা,<br><span class="hl">ডিজাইন আমাদের অনুভূতি।</span></h2><p>"গুঞ্জরণ" মানে মৃদু সুরেলা ধ্বনি। আমরা চাই আমাদের প্রতিটি প্রোডাক্ট মানুষের জীবনে তেমনই সহজ আর সুন্দরভাবে মিশে যাক।</p><i class="bar"></i></div>
+    <div class="sh rv"><div class="idx" data-t="about.1">about</div><h2><span data-t="about.2">কোড আমাদের ভাষা,</span><br><span class="hl" data-t="about.3">ডিজাইন আমাদের অনুভূতি।</span></h2><p data-t="about.4">"গুঞ্জরণ" মানে মৃদু সুরেলা ধ্বনি। আমরা চাই আমাদের প্রতিটি প্রোডাক্ট মানুষের জীবনে তেমনই সহজ আর সুন্দরভাবে মিশে যাক।</p><i class="bar"></i></div>
     <div class="bento">
-      <div class="card b-a rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div><p class="big-q">আইডিয়া থেকে লঞ্চ পর্যন্ত পুরো যাত্রায় আমরা আপনার পাশে আছি: পরিকল্পনা, ডিজাইন, ডেভেলপমেন্ট, টেস্টিং আর ডিপ্লয়মেন্ট, সব এক টিমে।</p></div>
-      <div class="card b-b rv d1"><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>সময়মতো ডেলিভারি</h3><p>পরিষ্কার মাইলস্টোন আর নিয়মিত আপডেট।</p></div>
-      <div class="card b-c rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>ক্লিন আর্কিটেকচার</h3><p>এমন কোড, যা বড় হলেও সামলানো সহজ।</p></div>
-      <div class="card b-d rv d1"><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><h3>মোবাইল-ফার্স্ট</h3><p>প্রতিটি স্ক্রিনে নিখুঁত অভিজ্ঞতা।</p></div>
-      <div class="card b-e rv d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h3>বাংলায় যত্ন</h3><p>বাংলা ভাষা ও স্থানীয় ব্যবহারকারীর কথা মাথায় রেখে।</p></div>
+      <div class="card b-a rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div><p class="big-q" data-t="about.5">আইডিয়া থেকে লঞ্চ পর্যন্ত পুরো যাত্রায় আমরা আপনার পাশে আছি: পরিকল্পনা, ডিজাইন, ডেভেলপমেন্ট, টেস্টিং আর ডিপ্লয়মেন্ট, সব এক টিমে।</p></div>
+      <div class="card b-b rv d1"><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3 data-t="about.6">সময়মতো ডেলিভারি</h3><p data-t="about.7">পরিষ্কার মাইলস্টোন আর নিয়মিত আপডেট।</p></div>
+      <div class="card b-c rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 data-t="about.8">ক্লিন আর্কিটেকচার</h3><p data-t="about.9">এমন কোড, যা বড় হলেও সামলানো সহজ।</p></div>
+      <div class="card b-d rv d1"><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><h3 data-t="about.10">মোবাইল-ফার্স্ট</h3><p data-t="about.11">প্রতিটি স্ক্রিনে নিখুঁত অভিজ্ঞতা।</p></div>
+      <div class="card b-e rv d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div><h3 data-t="about.12">বাংলায় যত্ন</h3><p data-t="about.13">বাংলা ভাষা ও স্থানীয় ব্যবহারকারীর কথা মাথায় রেখে।</p></div>
     </div>
   </div>
 </section>
@@ -140,14 +144,14 @@
 <!-- SERVICES -->
 <section id="services">
   <div class="wrap">
-    <div class="sh rv"><div class="idx">services</div><h2>আমরা যা <span class="hl">করি</span></h2><p>একটি ছোট টিম, কিন্তু পুরো প্রোডাক্ট বানানোর সব দক্ষতা এক জায়গায়।</p><i class="bar"></i></div>
+    <div class="sh rv"><div class="idx" data-t="services.1">services</div><h2><span data-t="services.2">আমরা যা</span> <span class="hl" data-t="services.3">করি</span></h2><p data-t="services.4">একটি ছোট টিম, কিন্তু পুরো প্রোডাক্ট বানানোর সব দক্ষতা এক জায়গায়।</p><i class="bar"></i></div>
     <div class="svc">
-      <div class="card rv"><span class="num">/01</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>ওয়েব ডেভেলপমেন্ট</h3><p>দ্রুত, SEO-বান্ধব ও রেসপন্সিভ ওয়েবসাইট এবং ওয়েব অ্যাপ।</p><div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Laravel</span></div></div>
-      <div class="card rv d1"><span class="num">/02</span><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><h3>মোবাইল অ্যাপ</h3><p>Android ও iOS-এর জন্য এক কোডবেসে স্মুথ নেটিভ-অনুভূতির অ্যাপ।</p><div class="chips"><span class="chip">Flutter</span><span class="chip">React Native</span></div></div>
-      <div class="card rv d2"><span class="num">/03</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></div><h3>UI/UX ডিজাইন</h3><p>রিসার্চভিত্তিক, ব্যবহারে সহজ এবং দেখতে প্রিমিয়াম ইন্টারফেস।</p><div class="chips"><span class="chip">Figma</span><span class="chip">Prototype</span></div></div>
-      <div class="card rv"><span class="num">/04</span><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.7-4 3-9 3s-9-1.3-9-3M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/></svg></div><h3>ব্যাকএন্ড ও API</h3><p>নিরাপদ, স্কেলযোগ্য সার্ভার, ডাটাবেস ও REST/GraphQL API।</p><div class="chips"><span class="chip">Node.js</span><span class="chip">Firebase</span><span class="chip">MySQL</span></div></div>
-      <div class="card rv d1"><span class="num">/05</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div><h3>ডিপ্লয় ও মেইনটেন্যান্স</h3><p>হোস্টিং, ডোমেইন, CI/CD এবং লঞ্চের পর নিয়মিত সাপোর্ট।</p><div class="chips"><span class="chip">Vercel</span><span class="chip">GitHub Actions</span></div></div>
-      <div class="card rv d2"><span class="num">/06</span><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4zM4 22a8 8 0 0 1 16 0"/></svg></div><h3>ব্র্যান্ডিং ও পরামর্শ</h3><p>লোগো, ব্র্যান্ড আইডেন্টিটি এবং আপনার আইডিয়ার জন্য সঠিক টেক প্ল্যান।</p><div class="chips"><span class="chip">Strategy</span><span class="chip">Identity</span></div></div>
+      <div class="card rv"><span class="num" data-t="services.5">/01</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3 data-t="services.6">ওয়েব ডেভেলপমেন্ট</h3><p data-t="services.7">দ্রুত, SEO-বান্ধব ও রেসপন্সিভ ওয়েবসাইট এবং ওয়েব অ্যাপ।</p><div class="chips"><span class="chip" data-t="services.8">React</span><span class="chip" data-t="services.9">Next.js</span><span class="chip" data-t="services.10">Laravel</span></div></div>
+      <div class="card rv d1"><span class="num" data-t="services.11">/02</span><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><h3 data-t="services.12">মোবাইল অ্যাপ</h3><p data-t="services.13">Android ও iOS-এর জন্য এক কোডবেসে স্মুথ নেটিভ-অনুভূতির অ্যাপ।</p><div class="chips"><span class="chip" data-t="services.14">Flutter</span><span class="chip" data-t="services.15">React Native</span></div></div>
+      <div class="card rv d2"><span class="num" data-t="services.16">/03</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></div><h3 data-t="services.17">UI/UX ডিজাইন</h3><p data-t="services.18">রিসার্চভিত্তিক, ব্যবহারে সহজ এবং দেখতে প্রিমিয়াম ইন্টারফেস।</p><div class="chips"><span class="chip" data-t="services.19">Figma</span><span class="chip" data-t="services.20">Prototype</span></div></div>
+      <div class="card rv"><span class="num" data-t="services.21">/04</span><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.7-4 3-9 3s-9-1.3-9-3M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/></svg></div><h3 data-t="services.22">ব্যাকএন্ড ও API</h3><p data-t="services.23">নিরাপদ, স্কেলযোগ্য সার্ভার, ডাটাবেস ও REST/GraphQL API।</p><div class="chips"><span class="chip" data-t="services.24">Node.js</span><span class="chip" data-t="services.25">Firebase</span><span class="chip" data-t="services.26">MySQL</span></div></div>
+      <div class="card rv d1"><span class="num" data-t="services.27">/05</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div><h3 data-t="services.28">ডিপ্লয় ও মেইনটেন্যান্স</h3><p data-t="services.29">হোস্টিং, ডোমেইন, CI/CD এবং লঞ্চের পর নিয়মিত সাপোর্ট।</p><div class="chips"><span class="chip" data-t="services.30">Vercel</span><span class="chip" data-t="services.31">GitHub Actions</span></div></div>
+      <div class="card rv d2"><span class="num" data-t="services.32">/06</span><div class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4zM4 22a8 8 0 0 1 16 0"/></svg></div><h3 data-t="services.33">ব্র্যান্ডিং ও পরামর্শ</h3><p data-t="services.34">লোগো, ব্র্যান্ড আইডেন্টিটি এবং আপনার আইডিয়ার জন্য সঠিক টেক প্ল্যান।</p><div class="chips"><span class="chip" data-t="services.35">Strategy</span><span class="chip" data-t="services.36">Identity</span></div></div>
     </div>
   </div>
 </section>
@@ -159,11 +163,11 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="wrap">
-    <div class="sh rv"><div class="idx">projects</div><h2>নির্বাচিত <span class="hl">কাজ</span></h2><p>যে প্রজেক্টগুলো আমরা যত্ন নিয়ে বানিয়েছি। বিস্তারিত দেখতে যেকোনো কার্ডে ক্লিক করুন।</p><i class="bar"></i></div>
+    <div class="sh rv"><div class="idx" data-t="projects.1">projects</div><h2><span data-t="projects.2">নির্বাচিত</span> <span class="hl" data-t="projects.3">কাজ</span></h2><p data-t="projects.4">যে প্রজেক্টগুলো আমরা যত্ন নিয়ে বানিয়েছি। বিস্তারিত দেখতে যেকোনো কার্ডে ক্লিক করুন।</p><i class="bar"></i></div>
     <div class="filters rv">
-      <button class="flt on" data-f="all">সব (5)</button>
-      <button class="flt" data-f="web">ওয়েবসাইট (3)</button>
-      <button class="flt" data-f="app">মোবাইল অ্যাপ (2)</button>
+      <button class="flt on" data-f="all" data-t="projects.5">সব (5)</button>
+      <button class="flt" data-f="web" data-t="projects.6">ওয়েবসাইট (3)</button>
+      <button class="flt" data-f="app" data-t="projects.7">মোবাইল অ্যাপ (2)</button>
     </div>
     <div class="proj" id="proj"></div>
   </div>
@@ -174,14 +178,14 @@
 <!-- PROCESS -->
 <section id="process">
   <div class="wrap">
-    <div class="sh rv"><div class="idx">process</div><h2>আমাদের কাজের <span class="hl">ধাপ</span></h2><p>স্বচ্ছ প্রক্রিয়া, যাতে প্রতিটি ধাপে আপনি জানেন কী হচ্ছে।</p><i class="bar"></i></div>
+    <div class="sh rv"><div class="idx" data-t="process.1">process</div><h2><span data-t="process.2">আমাদের কাজের</span> <span class="hl" data-t="process.3">ধাপ</span></h2><p data-t="process.4">স্বচ্ছ প্রক্রিয়া, যাতে প্রতিটি ধাপে আপনি জানেন কী হচ্ছে।</p><i class="bar"></i></div>
     <div class="proc" id="procEl">
       <div class="proc-line"><i id="procLine"></i></div>
-      <div class="step rv"><div class="o">01</div><h4>আলোচনা</h4><p>আপনার লক্ষ্য, ব্যবহারকারী ও প্রয়োজন বোঝা</p></div>
-      <div class="step rv d1"><div class="o">02</div><h4>ডিজাইন</h4><p>ওয়্যারফ্রেম, UI ডিজাইন ও প্রোটোটাইপ</p></div>
-      <div class="step rv d2"><div class="o">03</div><h4>ডেভেলপ</h4><p>ক্লিন কোডে ফ্রন্টএন্ড ও ব্যাকএন্ড তৈরি</p></div>
-      <div class="step rv d3"><div class="o">04</div><h4>টেস্ট</h4><p>সব ডিভাইসে পারফরম্যান্স ও বাগ যাচাই</p></div>
-      <div class="step rv d4"><div class="o">05</div><h4>লঞ্চ</h4><p>ডিপ্লয়মেন্ট এবং লঞ্চের পর সাপোর্ট</p></div>
+      <div class="step rv"><div class="o" data-t="process.5">01</div><h4 data-t="process.6">আলোচনা</h4><p data-t="process.7">আপনার লক্ষ্য, ব্যবহারকারী ও প্রয়োজন বোঝা</p></div>
+      <div class="step rv d1"><div class="o" data-t="process.8">02</div><h4 data-t="process.9">ডিজাইন</h4><p data-t="process.10">ওয়্যারফ্রেম, UI ডিজাইন ও প্রোটোটাইপ</p></div>
+      <div class="step rv d2"><div class="o" data-t="process.11">03</div><h4 data-t="process.12">ডেভেলপ</h4><p data-t="process.13">ক্লিন কোডে ফ্রন্টএন্ড ও ব্যাকএন্ড তৈরি</p></div>
+      <div class="step rv d3"><div class="o" data-t="process.14">04</div><h4 data-t="process.15">টেস্ট</h4><p data-t="process.16">সব ডিভাইসে পারফরম্যান্স ও বাগ যাচাই</p></div>
+      <div class="step rv d4"><div class="o" data-t="process.17">05</div><h4 data-t="process.18">লঞ্চ</h4><p data-t="process.19">ডিপ্লয়মেন্ট এবং লঞ্চের পর সাপোর্ট</p></div>
     </div>
   </div>
 </section>
@@ -189,7 +193,7 @@
 <!-- TEAM -->
 <section id="team">
   <div class="wrap">
-    <div class="sh rv"><div class="idx">team</div><h2>যাদের হাতে কোড <span class="hl">জাদু</span> হয়</h2><p>একটি টিম, একটি লক্ষ্য: অসাধারণ ডিজিটাল অভিজ্ঞতা তৈরি করা।</p><i class="bar"></i></div>
+    <div class="sh rv"><div class="idx" data-t="team.1">team</div><h2><span data-t="team.2">যাদের হাতে কোড</span> <span class="hl" data-t="team.3">জাদু</span> <span data-t="team.4">হয়</span></h2><p data-t="team.5">একটি টিম, একটি লক্ষ্য: অসাধারণ ডিজিটাল অভিজ্ঞতা তৈরি করা।</p><i class="bar"></i></div>
     <div class="team" id="teamEl"></div>
   </div>
 </section>
@@ -197,11 +201,11 @@
 <!-- TERMINAL -->
 <section id="terminal">
   <div class="wrap">
-    <div class="sh rv"><div class="idx">terminal</div><h2>নিজেই <span class="hl">কমান্ড</span> চালিয়ে দেখুন</h2><p>প্রোগ্রামারদের মতো করে আমাদের চিনুন। নিচে কমান্ড লিখুন অথবা বাটনে ক্লিক করুন।</p><i class="bar"></i></div>
+    <div class="sh rv"><div class="idx" data-t="terminal.1">terminal</div><h2><span data-t="terminal.2">নিজেই</span> <span class="hl" data-t="terminal.3">কমান্ড</span> <span data-t="terminal.4">চালিয়ে দেখুন</span></h2><p data-t="terminal.5">প্রোগ্রামারদের মতো করে আমাদের চিনুন। নিচে কমান্ড লিখুন অথবা বাটনে ক্লিক করুন।</p><i class="bar"></i></div>
     <div class="term-wrap" style="margin-inline:auto">
       <div class="rv"><div class="cmds" id="cmds"><button>help</button><button>whoami</button><button>team</button><button>projects</button><button>services</button><button>contact</button><button>sudo hire-us</button><button>clear</button></div></div>
       <div class="term rv d1">
-      <div class="ide-top"><i></i><i></i><i></i><span class="tab">guest@gunjoron: ~</span></div>
+      <div class="ide-top"><i></i><i></i><i></i><span class="tab" data-t="terminal.6">guest@gunjoron: ~</span></div>
       <div class="term-body" id="tb">
         <div id="tout"></div>
         <div class="term-in"><span class="g">guest@gunjoron</span><span class="b">:~$</span><input id="tin" autocomplete="off" spellcheck="false" aria-label="টার্মিনাল ইনপুট"></div>
@@ -215,7 +219,7 @@
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap">
-    <div class="sh rv"><div class="idx">faq</div><h2>সাধারণ <span class="hl">জিজ্ঞাসা</span></h2><i class="bar"></i></div>
+    <div class="sh rv"><div class="idx" data-t="faq.1">faq</div><h2><span data-t="faq.2">সাধারণ</span> <span class="hl" data-t="faq.3">জিজ্ঞাসা</span></h2><i class="bar"></i></div>
     <div class="faq" id="faqEl"></div>
   </div>
 </section>
@@ -223,27 +227,27 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
-    <div class="sh rv"><div class="idx">contact</div><h2>চলুন একসাথে কিছু <span class="hl">বানাই</span></h2><p>আপনার আইডিয়া সম্পর্কে একটু জানান, আমরা দ্রুত যোগাযোগ করব।</p><i class="bar"></i></div>
+    <div class="sh rv"><div class="idx" data-t="contact.1">contact</div><h2><span data-t="contact.2">চলুন একসাথে কিছু</span> <span class="hl" data-t="contact.3">বানাই</span></h2><p data-t="contact.4">আপনার আইডিয়া সম্পর্কে একটু জানান, আমরা দ্রুত যোগাযোগ করব।</p><i class="bar"></i></div>
     <div class="ct">
       <div class="card ct-l rv">
-        <div><h3>আপনার পরের বড় আইডিয়া<br><span class="g">এখান থেকেই শুরু।</span></h3>
-        <ul><li><span>01</span>ফ্রি প্রাথমিক পরামর্শ</li><li><span>02</span>পরিষ্কার খরচ ও সময়সূচি</li><li><span>03</span>লঞ্চের পরও সাপোর্ট</li></ul></div>
-        <p class="mono m" style="font-size:13px;margin-top:30px">// response_time: &lt; 24h</p>
+        <div><h3><span data-t="contact.5">আপনার পরের বড় আইডিয়া</span><br><span class="g" data-t="contact.6">এখান থেকেই শুরু।</span></h3>
+        <ul><li><span data-t="contact.7">01</span><span data-t="contact.8">ফ্রি প্রাথমিক পরামর্শ</span></li><li><span data-t="contact.9">02</span><span data-t="contact.10">পরিষ্কার খরচ ও সময়সূচি</span></li><li><span data-t="contact.11">03</span><span data-t="contact.12">লঞ্চের পরও সাপোর্ট</span></li></ul></div>
+        <p class="mono m" style="font-size:13px;margin-top:30px" data-t="contact.13">// response_time: &lt; 24h</p>
       </div>
       <form class="card rv d1" id="form" novalidate>
         <div id="fwrap" style="display:grid;gap:18px">
-          <div class="fr"><div><label for="fn">নাম *</label><input id="fn" placeholder="আপনার নাম"></div><div><label for="fe">ইমেইল / ফোন *</label><input id="fe" placeholder="যোগাযোগের মাধ্যম"></div></div>
-          <div><label>কী ধরনের কাজ?</label><div class="opts">
-            <input type="checkbox" id="o1" checked><label for="o1">ওয়েবসাইট</label>
-            <input type="checkbox" id="o2"><label for="o2">মোবাইল অ্যাপ</label>
-            <input type="checkbox" id="o3"><label for="o3">UI/UX</label>
-            <input type="checkbox" id="o4"><label for="o4">অন্যান্য</label></div></div>
-          <div><label for="bud">আনুমানিক বাজেট: <span class="g" id="budv">৳ ৫০,০০০</span></label><input type="range" id="bud" min="10000" max="500000" step="10000" value="50000"></div>
-          <div><label for="fm">প্রজেক্ট সম্পর্কে *</label><textarea id="fm" placeholder="আপনার আইডিয়া সংক্ষেপে লিখুন..."></textarea></div>
+          <div class="fr"><div><label for="fn" data-t="contact.14">নাম *</label><input id="fn" placeholder="আপনার নাম" data-tp="ph.name"></div><div><label for="fe" data-t="contact.15">ইমেইল / ফোন *</label><input id="fe" placeholder="যোগাযোগের মাধ্যম" data-tp="ph.contact"></div></div>
+          <div><label data-t="contact.16">কী ধরনের কাজ?</label><div class="opts">
+            <input type="checkbox" id="o1" checked><label for="o1" data-t="contact.17">ওয়েবসাইট</label>
+            <input type="checkbox" id="o2"><label for="o2" data-t="contact.18">মোবাইল অ্যাপ</label>
+            <input type="checkbox" id="o3"><label for="o3" data-t="contact.19">UI/UX</label>
+            <input type="checkbox" id="o4"><label for="o4" data-t="contact.20">অন্যান্য</label></div></div>
+          <div><label for="bud"><span data-t="contact.21">আনুমানিক বাজেট:</span> <span class="g" id="budv" data-t="contact.22">৳ ৫০,০০০</span></label><input type="range" id="bud" min="10000" max="500000" step="10000" value="50000"></div>
+          <div><label for="fm" data-t="contact.23">প্রজেক্ট সম্পর্কে *</label><textarea id="fm" placeholder="আপনার আইডিয়া সংক্ষেপে লিখুন..." data-tp="ph.msg"></textarea></div>
           <div class="err" id="ferr"></div>
-          <button class="btn btn-p mag" type="submit" style="justify-content:center">বার্তা পাঠান <span>→</span></button>
+          <button class="btn btn-p mag" type="submit" style="justify-content:center"><span data-t="contact.24">বার্তা পাঠান</span> <span>→</span></button>
         </div>
-        <div class="sent" id="sent"><div class="ok">✓</div><h3 style="font-size:24px">ধন্যবাদ, <span id="sname"></span>!</h3><p class="m" style="margin-top:8px">আপনার বার্তা পৌঁছে গেছে। আমরা ২৪ ঘণ্টার মধ্যে যোগাযোগ করব।</p><button type="button" class="btn btn-o btn-sm" style="margin-top:20px" id="again">আরেকটি পাঠান</button></div>
+        <div class="sent" id="sent"><div class="ok">✓</div><h3 style="font-size:24px"><span data-t="contact.25">ধন্যবাদ,</span> <span id="sname"></span>!</h3><p class="m" style="margin-top:8px" data-t="contact.26">আপনার বার্তা পৌঁছে গেছে। আমরা ২৪ ঘণ্টার মধ্যে যোগাযোগ করব।</p><button type="button" class="btn btn-o btn-sm" style="margin-top:20px" id="again" data-t="contact.27">আরেকটি পাঠান</button></div>
       </form>
     </div>
   </div>
@@ -253,24 +257,24 @@
   <div class="wrap">
     <div class="ft">
       <div>
-        <a href="#home" class="logo"><svg class="mk" viewBox="0 0 64 64" aria-hidden="true"><use href="#gj-logo"/></svg><span>গুঞ্জরণ আইটি টিম<small>GUNJORON IT TEAM</small></span></a>
-        <p class="ft-tag">আইডিয়াকে কোডে, কোডকে অভিজ্ঞতায় রূপ দিই।</p>
+        <a href="#home" class="logo"><svg class="mk" viewBox="0 0 64 64" aria-hidden="true"><use href="#gj-logo"/></svg><span><span data-t="footer.1">গুঞ্জরণ আইটি টিম</span><small data-t="footer.2">GUNJORON IT TEAM</small></span></a>
+        <p class="ft-tag" data-t="footer.3">আইডিয়াকে কোডে, কোডকে অভিজ্ঞতায় রূপ দিই।</p>
         <div class="gl">
           <div class="contrib" id="contrib" role="img" aria-label="কাজের অ্যাক্টিভিটি"></div>
-          <div class="gl-f"><span><em>$</em> git log --since="26w"</span><span class="gl-l" aria-hidden="true"><span>কম</span><i></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i><span>বেশি</span></span></div>
+          <div class="gl-f"><span><em>$</em> <span data-t="footer.4">git log --since="26w"</span></span><span class="gl-l" aria-hidden="true"><span data-t="footer.5">কম</span><i></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i><span data-t="footer.6">বেশি</span></span></div>
         </div>
       </div>
-      <div><h5><b>//</b> navigate</h5><ul><li><a href="#about">আমরা</a></li><li><a href="#services">সার্ভিস</a></li><li><a href="#projects">প্রজেক্ট</a></li><li><a href="#team">টিম</a></li></ul></div>
-      <div><h5><b>//</b> projects</h5><ul><li><a href="#projects">পত্রদ্বীপ</a></li><li><a href="#projects">পাথেয় বাই গুঞ্জরণ</a></li><li><a href="#projects">কেয়ারি</a></li></ul></div>
-      <div><h5><b>//</b> newsletter</h5><p class="ft-nlp">নতুন কাজের খবর পেতে যুক্ত থাকুন।</p>
-        <form class="nl" id="nl" novalidate><label class="nl-f"><span class="pr" aria-hidden="true">&gt;</span><input type="email" name="email" placeholder="আপনার ইমেইল" aria-label="ইমেইল" autocomplete="email" inputmode="email"><button class="btn btn-p btn-sm nl-b" type="submit">যুক্ত হন <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></label></form></div>
+      <div><h5><b>//</b> <span data-t="footer.7">navigate</span></h5><ul><li><a href="#about" data-t="footer.8">আমরা</a></li><li><a href="#services" data-t="footer.9">সার্ভিস</a></li><li><a href="#projects" data-t="footer.10">প্রজেক্ট</a></li><li><a href="#team" data-t="footer.11">টিম</a></li></ul></div>
+      <div><h5><b>//</b> <span data-t="footer.12">projects</span></h5><ul><li><a href="#projects" data-t="footer.13">পত্রদ্বীপ</a></li><li><a href="#projects" data-t="footer.14">পাথেয় বাই গুঞ্জরণ</a></li><li><a href="#projects" data-t="footer.15">কেয়ারি</a></li></ul></div>
+      <div><h5><b>//</b> <span data-t="footer.16">newsletter</span></h5><p class="ft-nlp" data-t="footer.17">নতুন কাজের খবর পেতে যুক্ত থাকুন।</p>
+        <form class="nl" id="nl" novalidate><label class="nl-f"><span class="pr" aria-hidden="true">&gt;</span><input type="email" name="email" placeholder="আপনার ইমেইল" data-tp="ph.email" aria-label="ইমেইল" autocomplete="email" inputmode="email"><button class="btn btn-p btn-sm nl-b" type="submit"><span data-t="footer.18">যুক্ত হন</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></label></form></div>
     </div>
-    <div class="giant">GUNJORON</div>
-    <div class="fb"><span>© 2026 Gunjoron IT Team. সর্বস্বত্ব সংরক্ষিত।</span><span class="live"><i></i>Built with <span class="r">♥</span> &amp; clean code · <span class="g">v1.1.0</span></span></div>
+    <div class="giant" data-t="footer.19">GUNJORON</div>
+    <div class="fb"><span data-t="footer.20">© 2026 Gunjoron IT Team. সর্বস্বত্ব সংরক্ষিত।</span><span class="live"><i></i><span data-t="footer.21">Built with</span> <span class="r">♥</span> <span data-t="footer.22">&amp; clean code ·</span> <span class="g" data-t="footer.23">v1.1.0</span></span></div>
   </div>
 </footer>
 
-<div class="pal" id="pal"><div class="pb"><input id="palIn" placeholder="কোথায় যেতে চান? লিখুন..." aria-label="খুঁজুন"><ul id="palList"></ul></div></div>
+<div class="pal" id="pal"><div class="pb"><input id="palIn" placeholder="কোথায় যেতে চান? লিখুন..." data-tp="ph.search" aria-label="খুঁজুন"><ul id="palList"></ul></div></div>
 <div class="toast" id="toast"></div>
 <button class="totop" id="totop" aria-label="উপরে যান">
   <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3D7BFF"/><stop offset="1" stop-color="#22E58B"/></linearGradient></defs>
@@ -292,6 +296,7 @@
 <script src="js/modules/cursor.js" defer></script>
 <script src="js/modules/nav.js" defer></script>
 <script src="js/modules/render.js" defer></script>
+<script src="js/modules/gallery.js" defer></script>
 <script src="js/modules/projects.js" defer></script>
 <script src="js/modules/effects.js" defer></script>
 <script src="js/modules/terminal.js" defer></script>

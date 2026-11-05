@@ -13,8 +13,8 @@
 .bento .card,.svc .card{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .bento .card .ico,.svc .card .ico{margin:0 auto 20px;width:54px;height:54px;border-radius:15px;transition:transform .45s cubic-bezier(.2,1.4,.4,1),box-shadow .4s,background .3s}
 .bento .card .ico svg,.svc .card .ico svg{width:24px;height:24px}
-.bento .card:hover .ico,.svc .card:hover .ico{transform:translateY(-5px) scale(1.08);box-shadow:0 10px 30px -6px rgba(34,229,139,.55);background:rgba(34,229,139,.14)}
-.bento .card:hover .ico.bl,.svc .card:hover .ico.bl{box-shadow:0 10px 30px -6px rgba(61,123,255,.6);background:rgba(61,123,255,.16)}
+.bento .card:hover .ico,.svc .card:hover .ico{transform:translateY(-5px) scale(1.08);box-shadow:0 10px 30px -6px rgba(var(--green-rgb),.55);background:rgba(var(--green-rgb),.14)}
+.bento .card:hover .ico.bl,.svc .card:hover .ico.bl{box-shadow:0 10px 30px -6px rgba(var(--blue-rgb),.6);background:rgba(var(--blue-rgb),.16)}
 .bento .card h3,.svc .card h3{margin-bottom:10px}
 .bento .card p,.svc .card p{max-width:34ch;margin-inline:auto}
 .b-a p.big-q{max-width:46ch}

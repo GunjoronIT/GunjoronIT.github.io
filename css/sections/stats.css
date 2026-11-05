@@ -2,7 +2,7 @@
    Stats
    ========================================================== */
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:rgba(7,18,48,.5)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:rgba(var(--bg2-rgb),.5)}
 .st{padding:40px 28px;border-right:1px solid var(--line)}
 .st:last-child{border:0}
 .st b{font-family:var(--en);font-size:clamp(44px,5vw,64px);font-weight:700;line-height:1;display:block}

@@ -84,6 +84,15 @@ const sb = (() => {
       });
       return parse(r);
     },
+    /* upsert: onConflict = কলামের নাম (যেমন 'key') */
+    async upsert(table, row, onConflict) {
+      await ensureFresh();
+      const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}${onConflict ? '?on_conflict=' + onConflict : ''}`, {
+        method: 'POST', headers: { ...baseHeaders(), 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' },
+        body: JSON.stringify(row)
+      });
+      return parse(r);
+    },
     async remove(table, match) {
       await ensureFresh();
       const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${match}`, { method: 'DELETE', headers: baseHeaders() });
@@ -98,7 +107,32 @@ const sb = (() => {
       return parse(r);
     },
 
+    /* পাসওয়ার্ড বদল (লগইন করা অবস্থায়) */
+    async updatePassword(password) {
+      await ensureFresh();
+      const r = await fetch(SUPABASE_URL + '/auth/v1/user', {
+        method: 'PUT', headers: { ...baseHeaders(), 'Content-Type': 'application/json' }, body: JSON.stringify({ password })
+      });
+      return parse(r);
+    },
+
     /* ---- Storage ---- */
+    publicUrl(bucket, path) { return `${SUPABASE_URL}/storage/v1/object/public/${bucket}/${path}`; },
+    /* পাবলিক URL থেকে {bucket,path} বের করা (আমাদের নিজের স্টোরেজের URL হলে) */
+    parseUrl(url) {
+      const pre = `${SUPABASE_URL}/storage/v1/object/public/`;
+      if (!url || !String(url).startsWith(pre)) return null;
+      const rest = String(url).slice(pre.length), i = rest.indexOf('/');
+      return i < 0 ? null : { bucket: rest.slice(0, i), path: decodeURIComponent(rest.slice(i + 1)) };
+    },
+    async removeFile(url) {
+      const f = this.parseUrl(url); if (!f) return;
+      await ensureFresh();
+      const r = await fetch(`${SUPABASE_URL}/storage/v1/object/${f.bucket}`, {
+        method: 'DELETE', headers: { ...baseHeaders(), 'Content-Type': 'application/json' }, body: JSON.stringify({ prefixes: [f.path] })
+      });
+      return parse(r);
+    },
     async upload(bucket, path, file) {
       await ensureFresh();
       const r = await fetch(`${SUPABASE_URL}/storage/v1/object/${bucket}/${path}`, {

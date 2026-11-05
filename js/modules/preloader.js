@@ -3,7 +3,8 @@
    ========================================================== */
 /* ---------- PRELOADER ---------- */
 (function(){
-  const lines=['> booting gunjoron.os ...','> loading modules [ui, code, creativity]','> connecting team: 4/4 online','> compiling projects: 5 found','> ready ✓'];
+  const lines=GJ.list('list.boot');
+  if(!GJ.A('preloader')){$('#pre').classList.add('done');document.body.classList.remove('loading');document.addEventListener('DOMContentLoaded',()=>start());return}
   const box=$('#preBox');let i=0;
   const bar=document.createElement('div');bar.className='bar';bar.innerHTML='<i></i>';
   function next(){

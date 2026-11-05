@@ -18,6 +18,7 @@
 
 /* --- 4. Ripple effect on buttons --- */
 document.addEventListener('click',function(e){
+  if(!GJ.A('ripple'))return;
   const btn=e.target.closest('.btn,.btn-x,.btn-p,.flt,.cmds button');
   if(!btn)return;
   const rect=btn.getBoundingClientRect();
@@ -36,7 +37,7 @@ document.addEventListener('click',function(e){
 /* --- 10. Footer sparkles --- */
 (function(){
   const footer=document.querySelector('footer');
-  if(!footer||RM)return;
+  if(!footer||RM||!GJ.A('sparkles'))return;
   footer.style.position='relative';footer.style.overflow='hidden';
   setInterval(()=>{
     if(document.hidden)return;
@@ -55,7 +56,7 @@ document.addEventListener('click',function(e){
 
 /* --- 11a. Mouse trail effect --- */
 (function(){
-  if(RM||!matchMedia('(hover:hover)').matches)return;
+  if(RM||!GJ.A('trail')||!matchMedia('(hover:hover)').matches)return;
   const dots=[];const MAX=12;
   let lastX=0,lastY=0;
   document.addEventListener('mousemove',function(e){

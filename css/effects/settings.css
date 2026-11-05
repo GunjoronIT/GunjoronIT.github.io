@@ -1,0 +1,16 @@
+/* ==========================================================
+   অ্যাডমিন থেকে নিয়ন্ত্রিত সুইচ (theme-boot.js এই ক্লাসগুলো <html>-এ বসায়)
+   ========================================================== */
+html.a-rvnone .rv,html.a-rvnone .sh>*{opacity:1!important;transform:none!important;transition:none!important}
+html.a-nofloat .float,html.a-nofloat .scroll-ind,html.a-nofloat .hero-orb{animation:none!important}
+html.a-nofloat .hero-orb{display:none}
+html.a-noshimmer h1 .grad,html.a-noshimmer h2 .hl,html.a-noshimmer .sh .bar,html.a-noshimmer #prog,html.a-noshimmer .tm.in .sk span i{animation:none!important}
+html.a-nolift .card:hover{transform:none!important}
+html.a-nomarquee .marq .tr{animation:none!important}
+html.a-nogrid .bg-grid::after{display:none}
+html.a-nocursor .cur,html.a-nocursor .cur-dot{display:none!important}
+html.a-noparticles #net{display:none}
+html.a-nocodebg #codebg{display:none}
+html.a-notrail .mouse-trail-dot{display:none!important}
+html.a-nosparkle .footer-sparkle{display:none}
+html.a-nopre #pre{display:none!important}

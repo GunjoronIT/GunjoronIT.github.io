@@ -3,7 +3,7 @@
    ========================================================== */
 /* ---------- BACKGROUND CODE FRAGMENTS ---------- */
 (function(){
-  const root=$('#codebg');if(!root)return;
+  const root=$('#codebg');if(!root||!GJ.A('codebg'))return;
   const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const KW=new Set('const let var function return async await import from export if else for while class new def self try catch throw yield in of true false null None True False extends override interface type number string void public static final SELECT FROM WHERE AND ORDER BY DESC LIMIT INSERT INTO VALUES git npm ssh sudo echo cd ls'.split(' '));
   function hl(line){
