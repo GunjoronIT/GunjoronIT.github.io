@@ -4,14 +4,16 @@
   const useBackdrop = !!window.chrome && CSS.supports('backdrop-filter', 'url("#water-refraction")');
   const root = document.documentElement;
   let layer, filter, image, displacement;
-  const duration = 1240;
-  const riseTime = 145;
+  const duration = 1340;
+  const riseTime = 170;
+  const startRadius = 42;
+  const maxRadius = 247;
   // Leave room for asynchronous scrolling around WebKit's root filter region.
   const scrollStep = 128;
   const filterPadding = 32;
   const smoothstep = t => t * t * (3 - 2 * t);
   let originX, originY, start, frame;
-  let width, height, offsetX, offsetY, touchActive = false;
+  let width, height, offsetX, offsetY, layerX = 0, layerY = 0, touchActive = false;
 
   // Red and green store the horizontal and vertical offsets. Mid-gray
   // leaves pixels in place, including between the crests of the wave.
@@ -58,6 +60,7 @@
 
     if (useBackdrop) {
       layer = document.createElement('div');
+      layer.className = 'water-refraction';
       layer.setAttribute('aria-hidden', 'true');
     }
   }
@@ -69,6 +72,36 @@
     root.classList.remove('water-refraction-active');
   }
 
+  function setFilterRegion(left, top, regionWidth, regionHeight) {
+    if (width === regionWidth && height === regionHeight && offsetX === left && offsetY === top) return;
+    width = regionWidth;
+    height = regionHeight;
+    offsetX = left;
+    offsetY = top;
+    filter.setAttribute('x', left);
+    filter.setAttribute('y', top);
+    filter.setAttribute('width', width);
+    filter.setAttribute('height', height);
+  }
+
+  function placeLayer() {
+    // A document-positioned backdrop scrolls with the page on the compositor,
+    // including in between animation callbacks during touch and momentum scroll.
+    const extent = maxRadius + filterPadding;
+    layerX = Math.max(0, Math.floor(originX - extent));
+    layerY = Math.max(0, Math.floor(originY - extent));
+    const right = Math.min(root.scrollWidth, Math.ceil(originX + extent));
+    const bottom = Math.min(root.scrollHeight, Math.ceil(originY + extent));
+    const layerWidth = right - layerX;
+    const layerHeight = bottom - layerY;
+    layer.style.left = layerX + 'px';
+    layer.style.top = layerY + 'px';
+    layer.style.width = layerWidth + 'px';
+    layer.style.height = layerHeight + 'px';
+    setFilterRegion(0, 0, layerWidth, layerHeight);
+    if (!layer.isConnected) document.body.append(layer);
+  }
+
   function draw(now) {
     const elapsed = Math.max(0, now - start);
     if (elapsed >= duration || reducedMotion.matches) {
@@ -76,33 +109,24 @@
       return;
     }
 
-    const progress = elapsed / duration;
-    const radius = 42 + 205 * progress * (1.35 - .35 * progress);
-    const viewportX = scrollX;
-    const viewportY = scrollY;
-    const left = useBackdrop ? 0 : viewportX - filterPadding;
-    const top = useBackdrop ? 0 : Math.floor(viewportY / scrollStep) * scrollStep - filterPadding;
-    const regionWidth = root.clientWidth + (useBackdrop ? 0 : 2 * filterPadding);
-    const regionHeight = root.clientHeight + (useBackdrop ? 0 : scrollStep + 2 * filterPadding);
-    if (width !== regionWidth || height !== regionHeight || offsetX !== left || offsetY !== top) {
-      width = regionWidth;
-      height = regionHeight;
-      offsetX = left;
-      offsetY = top;
-      filter.setAttribute('x', left);
-      filter.setAttribute('y', top);
-      filter.setAttribute('width', width);
-      filter.setAttribute('height', height);
+    if (!useBackdrop) {
+      // WebKit's SVG filter is applied to the document itself. Reposition
+      // its padded clip region while keeping the wave in document coordinates.
+      const top = Math.floor(scrollY / scrollStep) * scrollStep - filterPadding;
+      setFilterRegion(scrollX - filterPadding, top,
+        root.clientWidth + 2 * filterPadding,
+        root.clientHeight + scrollStep + 2 * filterPadding);
     }
 
-    // Keep the wave on the touched content as the viewport scrolls past it.
-    image.setAttribute('x', originX - (useBackdrop ? viewportX : 0) - radius);
-    image.setAttribute('y', originY - (useBackdrop ? viewportY : 0) - radius);
+    const progress = elapsed / duration;
+    const radius = startRadius + (maxRadius - startRadius) * progress * (1.25 - .25 * progress);
+    image.setAttribute('x', originX - layerX - radius);
+    image.setAttribute('y', originY - layerY - radius);
     image.setAttribute('width', 2 * radius);
     image.setAttribute('height', 2 * radius);
     const rise = smoothstep(Math.min(1, elapsed / riseTime));
     const fade = 1 - smoothstep(Math.max(0, (elapsed - riseTime) / (duration - riseTime)));
-    const strength = 14 * rise * fade;
+    const strength = 12 * rise * fade;
     displacement.setAttribute('scale', strength);
 
     frame = requestAnimationFrame(draw);
@@ -117,13 +141,9 @@
     start = performance.now();
 
     cancelAnimationFrame(frame);
+    if (useBackdrop) placeLayer();
+    else root.classList.add('water-refraction-active');
     draw(start);
-    if (useBackdrop) {
-      layer.className = 'water-refraction';
-      if (!layer.isConnected) document.body.append(layer);
-    } else {
-      root.classList.add('water-refraction-active');
-    }
   }
 
   // One wave starts at contact, then continues through the natural scroll.

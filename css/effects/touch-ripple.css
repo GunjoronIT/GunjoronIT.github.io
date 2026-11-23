@@ -1,7 +1,6 @@
-/* Sample the live viewport so text, media and backgrounds refract together. */
+/* Sample the live page around the contact point in document coordinates. */
 .water-refraction {
-  position: fixed;
-  inset: 0;
+  position: absolute;
   z-index: 998;
   pointer-events: none;
   backdrop-filter: url(#water-refraction);
