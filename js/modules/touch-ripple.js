@@ -4,7 +4,11 @@
   const useBackdrop = !!window.chrome && CSS.supports('backdrop-filter', 'url("#water-refraction")');
   const root = document.documentElement;
   let layer, filter, image, displacement;
-  let originX, originY, start, moving, frame;
+  const duration = 1240;
+  const riseTime = 145;
+  const smoothstep = t => t * t * (3 - 2 * t);
+  let originX, originY, start, frame;
+  let width, height, offsetX, offsetY, touchActive = false;
 
   // Red and green store the horizontal and vertical offsets. Mid-gray
   // leaves pixels in place, including between the crests of the wave.
@@ -19,7 +23,7 @@
         const dy = (2 * y + 1) / size - 1;
         const radius = Math.hypot(dx, dy);
         const envelope = Math.sin(Math.PI * Math.min(1, radius)) ** 2;
-        const wave = radius ? Math.sin(radius * 7 * Math.PI) * envelope / radius : 0;
+        const wave = radius ? Math.sin(radius * 3 * Math.PI) * envelope / radius : 0;
         const index = (y * size + x) * 4;
         pixels.data[index] = 128 + 120 * wave * dx;
         pixels.data[index + 1] = 128 + 120 * wave * dy;
@@ -63,43 +67,49 @@
   }
 
   function draw(now) {
-    const progress = Math.min(1, (now - start) / (moving ? 450 : 740));
-    if (progress === 1 || reducedMotion.matches) {
+    const elapsed = Math.max(0, now - start);
+    if (elapsed >= duration || reducedMotion.matches) {
       stop();
       return;
     }
 
-    const radius = 20 + progress * (moving ? 125 : 235);
+    const progress = elapsed / duration;
+    const radius = 42 + 205 * progress * (1.35 - .35 * progress);
     const left = useBackdrop ? 0 : scrollX;
     const top = useBackdrop ? 0 : scrollY;
-    filter.setAttribute('x', left);
-    filter.setAttribute('y', top);
-    filter.setAttribute('width', root.clientWidth);
-    filter.setAttribute('height', root.clientHeight);
+    if (width !== root.clientWidth || height !== root.clientHeight ||
+        offsetX !== left || offsetY !== top) {
+      width = root.clientWidth;
+      height = root.clientHeight;
+      offsetX = left;
+      offsetY = top;
+      filter.setAttribute('x', left);
+      filter.setAttribute('y', top);
+      filter.setAttribute('width', width);
+      filter.setAttribute('height', height);
+    }
     image.setAttribute('x', originX + left - radius);
     image.setAttribute('y', originY + top - radius);
     image.setAttribute('width', 2 * radius);
     image.setAttribute('height', 2 * radius);
-    const strength = (moving ? 13 : 24) * Math.min(1, progress * 16) * (1 - progress) ** 1.4;
+    const rise = smoothstep(Math.min(1, elapsed / riseTime));
+    const fade = 1 - smoothstep(Math.max(0, (elapsed - riseTime) / (duration - riseTime)));
+    const strength = 14 * rise * fade;
     displacement.setAttribute('scale', strength);
 
     frame = requestAnimationFrame(draw);
   }
 
-  function ripple(touch, swipe) {
+  function ripple(touch) {
     if (reducedMotion.matches || document.body.classList.contains('loading')) return;
-    const now = performance.now();
-    if (swipe && (now - start < (moving ? 220 : 260) ||
-        Math.hypot(touch.clientX - originX, touch.clientY - originY) < 30)) return;
-
     if (!filter) initialize();
+
     originX = touch.clientX;
     originY = touch.clientY;
-    start = now;
-    moving = swipe;
+    start = performance.now();
 
     cancelAnimationFrame(frame);
-    draw(now);
+    draw(start);
     if (useBackdrop) {
       layer.className = 'water-refraction';
       if (!layer.isConnected) document.body.append(layer);
@@ -108,14 +118,19 @@
     }
   }
 
-  // Passive touch events keep delivering positions during native scrolling.
+  // One wave starts at contact, then continues through the natural scroll.
+  // Subsequent move/cancel events leave the animation to fade on its own.
   const options = { passive: true, capture: true };
   window.addEventListener('touchstart', event => {
-    if (event.touches.length === 1) ripple(event.touches[0], false);
-    else stop();
+    if (event.touches.length > 1) stop();
+    if (touchActive || event.touches.length !== 1) return;
+    touchActive = true;
+    ripple(event.touches[0]);
   }, options);
-  window.addEventListener('touchmove', event => {
-    if (event.touches.length === 1) ripple(event.touches[0], true);
-  }, options);
-  window.addEventListener('touchcancel', stop, options);
+
+  function release(event) {
+    if (event.touches.length === 0) touchActive = false;
+  }
+  window.addEventListener('touchend', release, options);
+  window.addEventListener('touchcancel', release, options);
 })();
