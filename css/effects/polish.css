@@ -55,3 +55,10 @@
 @media (hover:none){
   .mouse-trail-dot{display:none!important}
 }
+
+/* Match keyboard focus to the site's existing accent color. */
+#nav :is(a, button):focus-visible,
+.ft ul a:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+}
