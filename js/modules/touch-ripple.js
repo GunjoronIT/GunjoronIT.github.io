@@ -6,6 +6,9 @@
   let layer, filter, image, displacement;
   const duration = 1240;
   const riseTime = 145;
+  // Leave room for asynchronous scrolling around WebKit's root filter region.
+  const scrollStep = 128;
+  const filterPadding = 32;
   const smoothstep = t => t * t * (3 - 2 * t);
   let originX, originY, start, frame;
   let width, height, offsetX, offsetY, touchActive = false;
@@ -75,12 +78,15 @@
 
     const progress = elapsed / duration;
     const radius = 42 + 205 * progress * (1.35 - .35 * progress);
-    const left = useBackdrop ? 0 : scrollX;
-    const top = useBackdrop ? 0 : scrollY;
-    if (width !== root.clientWidth || height !== root.clientHeight ||
-        offsetX !== left || offsetY !== top) {
-      width = root.clientWidth;
-      height = root.clientHeight;
+    const viewportX = scrollX;
+    const viewportY = scrollY;
+    const left = useBackdrop ? 0 : viewportX - filterPadding;
+    const top = useBackdrop ? 0 : Math.floor(viewportY / scrollStep) * scrollStep - filterPadding;
+    const regionWidth = root.clientWidth + (useBackdrop ? 0 : 2 * filterPadding);
+    const regionHeight = root.clientHeight + (useBackdrop ? 0 : scrollStep + 2 * filterPadding);
+    if (width !== regionWidth || height !== regionHeight || offsetX !== left || offsetY !== top) {
+      width = regionWidth;
+      height = regionHeight;
       offsetX = left;
       offsetY = top;
       filter.setAttribute('x', left);
@@ -88,8 +94,10 @@
       filter.setAttribute('width', width);
       filter.setAttribute('height', height);
     }
-    image.setAttribute('x', originX + left - radius);
-    image.setAttribute('y', originY + top - radius);
+
+    // Keep the wave on the touched content as the viewport scrolls past it.
+    image.setAttribute('x', originX - (useBackdrop ? viewportX : 0) - radius);
+    image.setAttribute('y', originY - (useBackdrop ? viewportY : 0) - radius);
     image.setAttribute('width', 2 * radius);
     image.setAttribute('height', 2 * radius);
     const rise = smoothstep(Math.min(1, elapsed / riseTime));
@@ -104,8 +112,8 @@
     if (reducedMotion.matches || document.body.classList.contains('loading')) return;
     if (!filter) initialize();
 
-    originX = touch.clientX;
-    originY = touch.clientY;
+    originX = touch.clientX + scrollX;
+    originY = touch.clientY + scrollY;
     start = performance.now();
 
     cancelAnimationFrame(frame);
